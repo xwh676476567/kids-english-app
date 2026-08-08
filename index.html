@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>???????? App???????</title>
+</head>
+<body style="margin:0;background:#dbe2f0">
+<div id="kidapp" class="kp">
+<style>
+#kidapp{--kp-bg:light-dark(#fdf3e3,#141824);--kp-panel:light-dark(#ffffff,#262c40);--kp-panel2:light-dark(#fff8ea,#2c3248);--kp-ink:light-dark(#3b2d5e,#f3eefc);--kp-sub:light-dark(#9a8cb8,#a79ec9);--kp-line:light-dark(#f2e4cd,#3a4156);--kp-sky:#6ec6ff;--kp-sky-d:#3f9fe0;--kp-sun:#ffcf4d;--kp-sun-d:#f0a83a;--kp-coral:#ff7a6b;--kp-coral-d:#e75f4f;--kp-mint:#5ee6b0;--kp-mint-d:#35c98e;--kp-grape:#a78bfa;--kp-grape-d:#8568ee;--kp-shadow:rgba(59,45,94,.16);display:flex;justify-content:center;align-items:flex-start;padding:14px 10px 24px;font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Segoe UI",system-ui,sans-serif;color:var(--kp-ink);-webkit-font-smoothing:antialiased}
+#kidapp *{box-sizing:border-box;margin:0;padding:0}
+#kidapp button{font-family:inherit;border:0;cursor:pointer;color:inherit;background:none}
+#kidapp .phone{position:relative;width:min(402px,100%);height:min(836px,94vh);min-height:600px;background:light-dark(#eceef6,#0d0f18);border-radius:46px;padding:10px;box-shadow:0 20px 55px rgba(40,30,80,.30);flex:none}
+#kidapp .bezel{position:relative;width:100%;height:100%;background:var(--kp-bg);border-radius:38px;overflow:hidden;display:flex;flex-direction:column}
+#kidapp .statusbar{height:46px;flex:none;display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 8px;font-size:13px;font-weight:700}
+#kidapp .sig{display:inline-flex;gap:2px;align-items:flex-end;margin-right:8px}
+#kidapp .sig i{width:3px;background:currentColor;border-radius:1px}
+#kidapp .sig i:nth-child(1){height:4px}
+#kidapp .sig i:nth-child(2){height:7px}
+#kidapp .sig i:nth-child(3){height:9px}
+#kidapp .sig i:nth-child(4){height:11px}
+#kidapp .batt{display:inline-flex;align-items:center;gap:3px}
+#kidapp .batt b{width:20px;height:10px;border:1.5px solid currentColor;border-radius:3px;position:relative}
+#kidapp .batt b::after{content:"";position:absolute;inset:2px;width:58%;background:currentColor;border-radius:1px}
+#kidapp .batt em{width:2px;height:4px;background:currentColor;border-radius:0 2px 2px 0}
+#kidapp .viewport{position:relative;flex:1;min-height:0}
+#kidapp .screen{position:absolute;inset:0;display:none;overflow-y:auto;overscroll-behavior:contain;padding:14px 16px 26px;scrollbar-width:none}
+#kidapp .screen.active{display:block}
+#kidapp .screen::-webkit-scrollbar{display:none}
+#kidapp .tabbar{flex:none;height:74px;display:flex;align-items:center;justify-content:space-around;background:var(--kp-panel);border-top:1px solid var(--kp-line);border-radius:0 0 38px 38px;transition:opacity .2s}
+#kidapp .in-lesson .tabbar{opacity:0;pointer-events:none}
+#kidapp .tab{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:12px;font-weight:700;color:var(--kp-sub);padding:7px 20px;border-radius:20px;transition:all .15s}
+#kidapp .tab .te{font-size:22px;line-height:1}
+#kidapp .tab.on{color:var(--kp-coral-d);background:rgba(255,122,107,.13)}
+#kidapp .chip{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:800;padding:5px 11px;border-radius:999px;background:var(--kp-panel);border:1px solid var(--kp-line);box-shadow:0 2px 0 var(--kp-shadow)}
+#kidapp .chip.hot{color:var(--kp-coral-d)}
+#kidapp .chip.star{color:var(--kp-sun-d)}
+#kidapp .panel{background:var(--kp-panel);border:1px solid var(--kp-line);border-radius:24px;padding:16px;box-shadow:0 4px 0 var(--kp-shadow)}
+#kidapp .home-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+#kidapp .user{display:flex;align-items:center;gap:10px}
+#kidapp .avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--kp-sun),var(--kp-coral));display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 3px 0 var(--kp-shadow)}
+#kidapp .user b{display:block;font-size:17px;letter-spacing:.5px}
+#kidapp .user span{font-size:11.5px;color:var(--kp-sub);font-weight:600}
+#kidapp .chips{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+#kidapp .quest{position:relative;overflow:hidden;margin-bottom:18px}
+#kidapp .quest .qtag{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:linear-gradient(90deg,var(--kp-sun-d),var(--kp-coral-d));padding:4px 10px;border-radius:999px;margin-bottom:8px}
+#kidapp .quest b{font-size:16px;display:block;margin-bottom:2px}
+#kidapp .quest p{font-size:12px;color:var(--kp-sub);font-weight:600;margin-bottom:12px}
+#kidapp .qbar{height:12px;background:var(--kp-line);border-radius:999px;overflow:hidden}
+#kidapp .qbar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--kp-sun),var(--kp-coral));transition:width .4s}
+#kidapp .quest .qrow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px}
+#kidapp .quest .qrow span{font-size:12px;font-weight:800;color:var(--kp-sub)}
+#kidapp .bttn{border-radius:18px;font-weight:900;font-size:15px;letter-spacing:.5px;padding:13px 18px;color:#fff;box-shadow:0 5px 0 var(--kp-shadow);transition:transform .08s,box-shadow .08s,filter .15s;position:relative;overflow:hidden}
+#kidapp .bttn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--kp-shadow)}
+#kidapp .bttn.grad-sun{background:linear-gradient(135deg,var(--kp-sun),var(--kp-sun-d))}
+#kidapp .bttn.grad-coral{background:linear-gradient(135deg,var(--kp-coral),var(--kp-coral-d))}
+#kidapp .bttn.grad-sky{background:linear-gradient(135deg,var(--kp-sky),var(--kp-sky-d))}
+#kidapp .bttn.grad-mint{background:linear-gradient(135deg,var(--kp-mint),var(--kp-mint-d))}
+#kidapp .bttn.grad-grape{background:linear-gradient(135deg,var(--kp-grape),var(--kp-grape-d))}
+#kidapp .bttn:disabled{filter:grayscale(.85);opacity:.7;cursor:not-allowed}
+#kidapp h3.sec{font-size:15px;font-weight:900;margin:6px 2px 12px;display:flex;align-items:center;gap:6px}
+#kidapp .stage-list{position:relative;display:flex;flex-direction:column;gap:14px;padding:2px 0 8px}
+#kidapp .stage-list::before{content:"";position:absolute;left:30px;top:30px;bottom:30px;width:6px;border-radius:3px;background:var(--kp-line)}
+#kidapp .stage-item{position:relative;display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--kp-panel);border:1px solid var(--kp-line);border-radius:22px;padding:12px 14px;box-shadow:0 3px 0 var(--kp-shadow);transition:transform .12s}
+#kidapp .stage-item:active{transform:scale(.97)}
+#kidapp .scircle{position:relative;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;flex:none;box-shadow:inset 0 -6px 0 rgba(0,0,0,.10),0 3px 0 var(--kp-shadow)}
+#kidapp .scircle.st0{background:linear-gradient(135deg,#ffd34d,#ff9a56)}
+#kidapp .scircle.st1{background:linear-gradient(135deg,#7ee08a,#3f9fe0)}
+#kidapp .scircle.st2{background:linear-gradient(135deg,#f79cc4,#a78bfa)}
+#kidapp .scircle.st3{background:linear-gradient(135deg,#5ee6b0,#3f9fe0)}
+#kidapp .stage-item.locked .scircle{filter:grayscale(.9);opacity:.75}
+#kidapp .sinfo{flex:1;min-width:0}
+#kidapp .sinfo b{display:block;font-size:14.5px;font-weight:900;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#kidapp .sinfo i{display:block;font-style:normal;font-size:11.5px;color:var(--kp-sub);font-weight:600}
+#kidapp .sgo{font-size:12px;font-weight:900;color:var(--kp-coral-d);flex:none;padding:6px 10px;border-radius:999px;background:rgba(255,122,107,.12)}
+#kidapp .stage-item.locked .sgo{color:var(--kp-sub);background:var(--kp-line)}
+#kidapp .lesson{background:linear-gradient(180deg,var(--kp-panel2),var(--kp-bg));z-index:5}
+#kidapp .les-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+#kidapp .back{width:40px;height:40px;border-radius:14px;background:var(--kp-panel);border:1px solid var(--kp-line);font-size:22px;font-weight:900;color:var(--kp-ink);box-shadow:0 3px 0 var(--kp-shadow);flex:none}
+#kidapp .back:active{transform:translateY(2px);box-shadow:0 1px 0 var(--kp-shadow)}
+#kidapp .les-top .lt{flex:1;min-width:0}
+#kidapp .les-top b{display:block;font-size:16px;font-weight:900}
+#kidapp .les-top span{font-size:11.5px;color:var(--kp-sub);font-weight:700}
+#kidapp .phrase-card{position:relative;background:var(--kp-panel);border:1px solid var(--kp-line);border-radius:30px;padding:22px 18px 18px;box-shadow:0 6px 0 var(--kp-shadow);margin-bottom:16px}
+#kidapp .mascot{font-size:74px;text-align:center;line-height:1.15;filter:drop-shadow(0 6px 0 rgba(59,45,94,.14))}
+#kidapp .bubble{position:relative;background:linear-gradient(135deg,#eef7ff,#fdf3e3);border-radius:22px;padding:16px 14px;margin:10px 2px 0;text-align:center}
+#kidapp .bubble::before{content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%);border-left:10px solid transparent;border-right:10px solid transparent;border-bottom:10px solid #f8f0e2}
+#kidapp .bubble .en{font-size:27px;font-weight:900;color:var(--kp-sky-d);letter-spacing:1px}
+#kidapp .bubble .zh{font-size:15px;font-weight:800;color:var(--kp-ink);margin-top:4px}
+#kidapp .bubble .be{font-size:38px;margin-top:6px;line-height:1}
+#kidapp .dots{display:flex;gap:8px;justify-content:center;margin-bottom:16px}
+#kidapp .dot{width:11px;height:11px;border-radius:50%;background:var(--kp-line)}
+#kidapp .dot.on{background:var(--kp-mint)}
+#kidapp .dot.cur{width:26px;border-radius:999px;background:var(--kp-sun)}
+#kidapp .actions{display:flex;flex-direction:column;gap:12px}
+#kidapp .act-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;font-size:17px}
+#kidapp .eq{display:inline-flex;gap:3px;align-items:flex-end;height:16px;opacity:0;transition:opacity .2s}
+#kidapp .eq i{width:4px;border-radius:2px;background:currentColor;height:30%}
+#kidapp .talking .eq{opacity:1}
+#kidapp .talking .eq i:nth-child(1){animation:eq .5s ease-in-out infinite}
+#kidapp .talking .eq i:nth-child(2){animation:eq .7s ease-in-out .1s infinite}
+#kidapp .talking .eq i:nth-child(3){animation:eq .6s ease-in-out .2s infinite}
+#kidapp .talking .mascot{animation:jump .45s ease-in-out infinite alternate}
+#kidapp .talking .bubble{animation:thump .45s ease-in-out infinite alternate}
+#kidapp .hint{text-align:center;font-size:12px;font-weight:700;color:var(--kp-sub);margin-top:14px}
+#kidapp .ovl{position:absolute;inset:0;z-index:30;display:none;align-items:center;justify-content:center;flex-direction:column;padding:26px}
+#kidapp .ovl.on{display:flex;animation:ovlIn .25s ease-out}
+#kidapp .rec{background:linear-gradient(160deg,var(--kp-grape),#6d4fd8);color:#fff;z-index:35}
+#kidapp .rec-label{font-size:16px;font-weight:800;opacity:.9;margin-bottom:18px}
+#kidapp .rec-label b{font-size:30px;display:block;text-align:center;margin-bottom:6px}
+#kidapp .mic-big{width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:52px;border:3px solid rgba(255,255,255,.55);box-shadow:0 0 0 12px rgba(255,255,255,.08);animation:pulse 1.2s ease-in-out infinite}
+#kidapp .wave{display:flex;gap:5px;align-items:flex-end;height:44px;margin:26px 0 10px}
+#kidapp .wave i{width:7px;border-radius:4px;background:#fff;height:12px;opacity:.55}
+#kidapp .wave.on i{animation:wave .55s ease-in-out infinite}
+#kidapp .wave.on i:nth-child(2n){animation-delay:.15s}
+#kidapp .wave.on i:nth-child(3n){animation-delay:.3s}
+#kidapp .rec-hint{font-size:14px;font-weight:800;opacity:.95;margin-bottom:22px}
+#kidapp .rec .bttn{background:rgba(255,255,255,.18);box-shadow:0 4px 0 rgba(0,0,0,.15)}
+#kidapp .result{background:var(--kp-panel);border:1px solid var(--kp-line);border-radius:30px;padding:26px 22px;box-shadow:0 10px 0 var(--kp-shadow);max-width:330px;width:100%;position:relative;z-index:26;text-align:center;margin:auto}
+#kidapp .result .stars{font-size:44px;letter-spacing:4px;margin-bottom:8px;line-height:1.2}
+#kidapp .result .stars i{display:inline-block;font-style:normal;opacity:0;animation:starPop .5s cubic-bezier(.2,1.6,.4,1) forwards}
+#kidapp .res-title{font-size:22px;font-weight:900;color:var(--kp-coral-d);margin-bottom:6px}
+#kidapp .res-sub{font-size:13px;font-weight:700;color:var(--kp-sub);margin-bottom:4px}
+#kidapp .res-score{font-size:12px;font-weight:800;color:var(--kp-sun-d);margin-bottom:18px}
+#kidapp .result .row{display:flex;gap:10px;justify-content:center}
+#kidapp .result .row .bttn{flex:1;font-size:14px;padding:12px 6px;border-radius:16px}
+#kidapp .burst{position:absolute;inset:0;z-index:60;overflow:hidden;pointer-events:none}
+#kidapp .burst i{position:absolute;top:-16px;width:9px;height:15px;border-radius:3px;animation:cf 1.7s ease-out forwards}
+#kidapp .stage-ovl{background:rgba(28,22,54,.55);backdrop-filter:blur(4px);z-index:34}
+#kidapp .stage-card{background:var(--kp-panel);border-radius:30px;padding:26px 22px;max-width:330px;width:100%;text-align:center;box-shadow:0 10px 0 var(--kp-shadow);position:relative;z-index:26;margin:auto}
+#kidapp .stage-card .big{font-size:56px;margin-bottom:8px;animation:jump .5s ease-in-out infinite alternate}
+#kidapp .stage-card b.t{font-size:21px;font-weight:900;display:block;margin-bottom:4px}
+#kidapp .stage-card .gain{font-size:15px;font-weight:900;color:var(--kp-sun-d);margin-bottom:14px}
+#kidapp .stage-card .next-tip{font-size:13px;font-weight:800;color:var(--kp-mint-d);background:rgba(94,230,176,.15);border-radius:12px;padding:9px 12px;margin-bottom:16px}
+#kidapp .stage-card .row{display:flex;gap:10px}
+#kidapp .stage-card .row .bttn{flex:1;font-size:14px;padding:12px 6px;border-radius:16px}
+#kidapp .toast{position:absolute;left:50%;bottom:96px;transform:translateX(-50%) translateY(10px);z-index:70;background:var(--kp-ink);color:var(--kp-panel);font-size:13px;font-weight:800;padding:11px 18px;border-radius:999px;opacity:0;pointer-events:none;transition:all .25s;max-width:86%;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+#kidapp .toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+#kidapp .pet-area{display:flex;flex-direction:column;align-items:center;padding:18px 0 6px}
+#kidapp .pet-emoji{font-size:110px;line-height:1.15;filter:drop-shadow(0 8px 0 rgba(59,45,94,.14));transition:transform .3s}
+#kidapp .pet-shadow{width:120px;height:16px;border-radius:50%;background:rgba(59,45,94,.15);margin-top:-6px;margin-bottom:16px}
+#kidapp .pet-area.lv0 .pet-emoji{animation:wobble 1.6s ease-in-out infinite}
+#kidapp .pet-area.lv1 .pet-emoji{animation:jump .8s ease-in-out infinite alternate}
+#kidapp .pet-area.lv2 .pet-emoji{animation:bounce2 2.2s ease-in-out infinite}
+#kidapp .pet-area.bump .pet-emoji{animation:bump .5s ease}
+#kidapp .pet-info{text-align:center;margin-bottom:18px}
+#kidapp .pet-info b{font-size:21px;font-weight:900;display:block;margin-bottom:4px}
+#kidapp .pet-info p{font-size:13px;font-weight:700;color:var(--kp-sub)}
+#kidapp .grow-bar{height:14px;background:var(--kp-line);border-radius:999px;overflow:hidden;margin-bottom:6px}
+#kidapp .grow-bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--kp-sun),var(--kp-coral));transition:width .4s}
+#kidapp .grow-txt{text-align:center;font-size:12px;font-weight:800;color:var(--kp-sub);margin-bottom:18px}
+#kidapp .pet-actions{display:flex;gap:10px}
+#kidapp .pet-actions .bttn{flex:1;font-size:14px;border-radius:16px}
+#kidapp .me-head{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+#kidapp .me-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--kp-sun),var(--kp-coral));display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:0 4px 0 var(--kp-shadow)}
+#kidapp .me-head b{font-size:18px;display:block}
+#kidapp .me-head .lvl{display:inline-block;margin-top:5px;font-size:11px;font-weight:900;color:#fff;background:linear-gradient(90deg,var(--kp-grape),var(--kp-grape-d));padding:4px 10px;border-radius:999px}
+#kidapp .xp{height:8px;background:var(--kp-line);border-radius:999px;overflow:hidden;margin-top:8px}
+#kidapp .xp i{display:block;height:100%;width:62%;border-radius:999px;background:linear-gradient(90deg,var(--kp-sun),var(--kp-coral))}
+#kidapp .stat-row{display:flex;gap:10px;margin-bottom:16px}
+#kidapp .stat{flex:1;background:var(--kp-panel);border:1px solid var(--kp-line);border-radius:20px;padding:12px 8px;text-align:center;box-shadow:0 3px 0 var(--kp-shadow)}
+#kidapp .stat b{font-size:19px;font-weight:900;color:var(--kp-coral-d);display:block}
+#kidapp .stat span{font-size:11px;font-weight:700;color:var(--kp-sub)}
+#kidapp .badge-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+#kidapp .badge{background:var(--kp-panel);border:1px solid var(--kp-line);border-radius:20px;padding:14px 8px;text-align:center;box-shadow:0 3px 0 var(--kp-shadow)}
+#kidapp .badge span{font-size:30px;display:block;margin-bottom:6px}
+#kidapp .badge b{font-size:12px;font-weight:800;color:var(--kp-sub)}
+#kidapp .badge.locked{filter:grayscale(1);opacity:.55}
+#kidapp .set-list{display:flex;flex-direction:column;gap:10px}
+#kidapp .set-row{display:flex;align-items:center;justify-content:space-between;background:var(--kp-panel);border:1px solid var(--kp-line);border-radius:18px;padding:13px 16px;box-shadow:0 3px 0 var(--kp-shadow);font-size:14px;font-weight:800}
+#kidapp .sw{position:relative;width:52px;height:30px;border-radius:999px;background:var(--kp-line);transition:background .2s;flex:none}
+#kidapp .sw::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 2px 5px rgba(0,0,0,.25);transition:left .2s}
+#kidapp .sw.on{background:var(--kp-mint)}
+#kidapp .sw.on::after{left:25px}
+@keyframes eq{0%,100%{height:30%}50%{height:100%}}
+@keyframes jump{from{transform:translateY(0)}to{transform:translateY(-8px)}}
+@keyframes thump{from{transform:scale(1)}to{transform:scale(1.03)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.25),0 0 0 12px rgba(255,255,255,.08)}50%{box-shadow:0 0 0 8px rgba(255,255,255,.15),0 0 0 20px rgba(255,255,255,.04)}}
+@keyframes wave{0%,100%{height:12px}50%{height:42px}}
+@keyframes starPop{0%{opacity:0;transform:scale(.2) rotate(-40deg)}70%{opacity:1;transform:scale(1.35) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes cf{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--dx),540px) rotate(var(--rot))}}
+@keyframes ovlIn{from{opacity:0}to{opacity:1}}
+@keyframes wobble{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+@keyframes bounce2{0%,100%{transform:translateY(0)}30%{transform:translateY(-14px)}50%{transform:translateY(0)}70%{transform:translateY(-8px)}}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.3) rotate(-6deg)}100%{transform:scale(1)}}
+@media (max-width:380px){#kidapp .bubble .en{font-size:23px}#kidapp .mascot{font-size:62px}}
+@media (max-height:700px){#kidapp .phone{height:min(790px,96vh)}}
+</style><div class="phone" id="phone">
+  <div class="bezel">
+    <div class="statusbar"><span>9:41</span><span><span class="sig"><i></i><i></i><i></i><i></i></span><span class="batt"><b></b><em></em></span></span></div>
+    <div class="viewport">
+      <section class="screen" id="scr-home">
+        <header class="home-head">
+          <div class="user">
+            <div class="avatar">🦊</div>
+            <div><b>嗨，小雨！</b><span>今天也要大声说英语哦</span></div>
+          </div>
+          <div class="chips">
+            <span class="chip hot">🔥 连续 3 天</span>
+            <span class="chip star" data-stars>⭐ 128</span>
+          </div>
+        </header>
+        <div class="panel quest">
+          <span class="qtag">今日任务</span>
+          <b>跟读 5 句</b>
+          <p>完成任务可领取双倍星星奖励！</p>
+          <div class="qbar"><i id="questBar"></i></div>
+          <div class="qrow">
+            <span id="questTxt">跟读 5 句（2/5）</span>
+            <button class="bttn grad-sun" id="btnQuest" style="font-size:13px;padding:9px 16px;border-radius:14px">去完成 ➡️</button>
+          </div>
+        </div>
+        <h3 class="sec">🗺️ 闯关地图</h3>
+        <div class="stage-list" id="stageList"></div>
+      </section>
+      <section class="screen lesson" id="scr-lesson">
+        <div class="les-top">
+          <button class="back" id="btnBack">‹</button>
+          <div class="lt"><b id="lesTitle">第 1 关 · 打招呼</b><span id="lesSub">跟读 4 句</span></div>
+          <span class="chip star" data-stars>⭐ 128</span>
+        </div>
+        <div class="phrase-card" id="cardTalk">
+          <div class="mascot">🦊</div>
+          <div class="bubble">
+            <div class="en" id="phEn">Hello!</div>
+            <div class="zh" id="phZh">你好！</div>
+            <div class="be" id="phEmoji">🖐️</div>
+          </div>
+        </div>
+        <div class="dots" id="dots"></div>
+        <div class="actions">
+          <button class="bttn grad-sky act-btn" id="btnListen">🔊 听一听<span class="eq"><i></i><i></i><i></i></span></button>
+          <button class="bttn grad-coral act-btn" id="btnMic">🎤 跟我读</button>
+        </div>
+        <p class="hint">先听一听，再大声跟读！</p>
+      </section>
+      <section class="screen" id="scr-pet">
+        <h3 class="sec">🐣 我的宠物</h3>
+        <div class="panel" style="padding:8px 16px 20px">
+          <div class="pet-area" id="petArea">
+            <div class="pet-emoji" id="petEmoji">🥚</div>
+            <div class="pet-shadow"></div>
+          </div>
+          <div class="pet-info">
+            <b id="petName">神秘蛋</b>
+            <p id="petMood">轻轻敲一敲，用小星星喂它吧！</p>
+          </div>
+          <div class="grow-bar"><i id="petBar"></i></div>
+          <div class="grow-txt" id="petProg">成长 0/3</div>
+          <div class="pet-actions">
+            <button class="bttn grad-sun" id="btnFeed" style="flex:1">🍬 喂一颗星星（-5）</button>
+          </div>
+        </div>
+        <p class="hint">小星星喂得越多，宠物会长得越大哦！</p>
+      </section>
+      <section class="screen" id="scr-me">
+        <div class="me-head">
+          <div class="me-avatar">🦊</div>
+          <div><b>小雨</b><span class="lvl">口语小新星 Lv.3</span><div class="xp"><i></i></div></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b id="meDays">12</b><span>学习天数</span></div>
+          <div class="stat"><b id="meTalks">86</b><span>开口次数</span></div>
+          <div class="stat"><b id="meStars">128</b><span>小星星</span></div>
+        </div>
+        <h3 class="sec">🏅 荣誉徽章</h3>
+        <div class="badge-grid" id="badgeGrid"></div>
+        <h3 class="sec">⚙️ 设置</h3>
+        <div class="set-list">
+          <div class="set-row">🔊 提示音<button class="sw on" id="swSound"></button></div>
+          <div class="set-row">👨‍👩‍👧 家长专区<button class="bttn grad-grape" id="parentZone" style="font-size:12px;padding:8px 14px;border-radius:12px">去看看</button></div>
+        </div>
+      </section>
+      <div class="ovl rec" id="recOverlay">
+        <div class="rec-label"><b id="recCount">3</b>准备好了吗？</div>
+        <div class="mic-big">🎤</div>
+        <div class="wave" id="recWave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="rec-hint" id="recHint">大声读出来吧！</div>
+        <button class="bttn" id="btnCancelRec">✋ 取消</button>
+      </div>
+      <div class="ovl" id="resultOverlay" style="background:rgba(28,22,54,.42);backdrop-filter:blur(3px);z-index:28">
+        <div class="result">
+          <div class="stars" id="resStars"><i>⭐</i><i>⭐</i><i>⭐</i></div>
+          <div class="res-title">太棒了！</div>
+          <div class="res-sub">发音又准又响亮，小狐狸为你鼓掌！</div>
+          <div class="res-score">本次得分 <b id="resScore">98</b> 分</div>
+          <div class="row">
+            <button class="bttn grad-sky" id="btnAgain">🔁 再练一次</button>
+            <button class="bttn grad-coral" id="btnNextPhrase">下一句 ➡️</button>
+          </div>
+        </div>
+      </div>
+      <div class="ovl stage-ovl" id="stageOverlay">
+        <div class="stage-card">
+          <div class="big">🎉</div>
+          <b class="t" id="stageName">打招呼</b>
+          <div class="gain">通关奖励：<b id="stageGain">+12</b> 颗星星</div>
+          <div class="next-tip" id="stageNext">第 2 关 · 小动物 已解锁！</div>
+          <div class="row">
+            <button class="bttn grad-sky" id="btnStageHome">🏠 回首页</button>
+            <button class="bttn grad-coral" id="btnStageNext">继续闯关 ➡️</button>
+          </div>
+        </div>
+      </div>
+      <div class="burst" id="burst"></div>
+    </div>
+    <nav class="tabbar">
+      <button class="tab" data-tab="home"><span class="te">🏠</span>首页</button>
+      <button class="tab" data-tab="pet"><span class="te">🐣</span>宠物</button>
+      <button class="tab" data-tab="me"><span class="te">🏅</span>我的</button>
+    </nav>
+  </div>
+  <div class="toast" id="toast"></div>
+</div><script>
+(function(){
+  'use strict';
+  var state={
+    stars:128,
+    streak:3,
+    soundOn:true,
+    questDone:2,
+    pet:{feeds:4},
+    stages:[
+      {name:'打招呼',emoji:'🖐️',color:'st0',need:0,unlocked:true,done:false},
+      {name:'小动物',emoji:'🐶',color:'st1',need:12,unlocked:false,done:false},
+      {name:'五颜六色',emoji:'🌈',color:'st2',need:30,unlocked:false,done:false},
+      {name:'美味食物',emoji:'🍎',color:'st3',need:50,unlocked:false,done:false}
+    ],
+    lesson:0,
+    idx:0,
+    timers:{}
+  };
+  var LESSONS={
+    0:{title:'打招呼',sub:'跟读 4 句',phrases:[
+      {en:'Hello!',zh:'你好！',emoji:'🖐️'},
+      {en:'Good morning!',zh:'早上好！',emoji:'☀️'},
+      {en:'How are you?',zh:'你好吗？',emoji:'😊'},
+      {en:"I'm fine!",zh:'我很好！',emoji:'😄'}
+    ]},
+    1:{title:'小动物',sub:'认识动物小伙伴',phrases:[
+      {en:"It's a dog!",zh:'这是一只小狗！',emoji:'🐶'},
+      {en:"It's a cat!",zh:'这是一只小猫！',emoji:'🐱'},
+      {en:"It's a bird!",zh:'这是一只小鸟！',emoji:'🐦'},
+      {en:'I love animals!',zh:'我爱小动物！',emoji:'🐾'}
+    ]},
+    2:{title:'五颜六色',sub:'认识颜色小伙伴',phrases:[
+      {en:'Red!',zh:'红色！',emoji:'🍎'},
+      {en:'Blue!',zh:'蓝色！',emoji:'🌊'},
+      {en:'Yellow!',zh:'黄色！',emoji:'🌟'},
+      {en:'Green!',zh:'绿色！',emoji:'🌿'}
+    ]},
+    3:{title:'美味食物',sub:'好吃的英文怎么说',phrases:[
+      {en:'Yummy!',zh:'真好吃！',emoji:'😋'},
+      {en:'I like apples!',zh:'我喜欢苹果！',emoji:'🍎'},
+      {en:'Milk, please!',zh:'请给我牛奶！',emoji:'🥛'},
+      {en:'Thank you!',zh:'谢谢你！',emoji:'🙏'}
+    ]}
+  };
+  function $(id){return document.getElementById(id)}
+  function setStars(n){
+    state.stars=n;
+    document.querySelectorAll('[data-stars]').forEach(function(el){el.textContent='⭐ '+state.stars});
+  }
+  function showToast(msg){
+    var t=$('toast');
+    t.textContent=msg;
+    t.classList.add('on');
+    clearTimeout(state.timers.toast);
+    state.timers.toast=setTimeout(function(){t.classList.remove('on')},2200);
+  }
+  var actx=null;
+  function audio(fn){
+    if(!state.soundOn) return;
+    try{
+      if(!actx){
+        var A=window.AudioContext||window.webkitAudioContext;
+        if(!A) return;
+        actx=new A();
+      }
+      fn(actx,actx.currentTime);
+    }catch(e){}
+  }
+  function chime(){
+    audio(function(a,t){
+      [[523,0],[659,.12],[784,.24],[1046,.36]].forEach(function(p){
+        var o=a.createOscillator(),g=a.createGain();
+        o.type='triangle';o.frequency.value=p[0];
+        g.gain.setValueAtTime(.0001,t+p[1]);
+        g.gain.exponentialRampToValueAtTime(.22,t+p[1]+.03);
+        g.gain.exponentialRampToValueAtTime(.0001,t+p[1]+.5);
+        o.connect(g);g.connect(a.destination);
+        o.start(t+p[1]);o.stop(t+p[1]+.55);
+      });
+    });
+  }
+  function beep(){
+    audio(function(a,t){
+      var o=a.createOscillator(),g=a.createGain();
+      o.type='sine';o.frequency.value=880;
+      g.gain.setValueAtTime(.14,t);
+      g.gain.exponentialRampToValueAtTime(.0001,t+.28);
+      o.connect(g);g.connect(a.destination);
+      o.start(t);o.stop(t+.3);
+    });
+  }
+  function speak(){
+    try{
+      if(!('speechSynthesis' in window)) return;
+      speechSynthesis.cancel();
+      var u=new SpeechSynthesisUtterance(cur().en);
+      u.lang='en-US';u.rate=.85;
+      speechSynthesis.speak(u);
+    }catch(e){}
+  }
+  function confetti(){
+    var wrap=$('burst');
+    wrap.innerHTML='';
+    var colors=['#ffcf4d','#ff7a6b','#5ee6b0','#6ec6ff','#a78bfa'];
+    for(var i=0;i<34;i++){
+      var c=document.createElement('i');
+      c.style.left=(4+Math.random()*92)+'%';
+      c.style.background=colors[i%colors.length];
+      c.style.animationDelay=(Math.random()*.5)+'s';
+      c.style.setProperty('--dx',(Math.random()*180-90)+'px');
+      c.style.setProperty('--rot',(Math.random()*720-360)+'deg');
+      wrap.appendChild(c);
+    }
+  }
+  function setScreen(name){
+    ['home','lesson','pet','me'].forEach(function(n){
+      $('scr-'+n).classList.toggle('active',n===name);
+    });
+    if(name!=='lesson'){
+      clearInterval(state.timers.rec);
+      clearTimeout(state.timers.rec2);
+      clearTimeout(state.timers.talk);
+      $('recOverlay').classList.remove('on');
+      $('resultOverlay').classList.remove('on');
+      $('stageOverlay').classList.remove('on');
+      $('cardTalk').classList.remove('talking');
+    }
+    $('phone').classList.toggle('in-lesson',name==='lesson');
+    document.querySelectorAll('.tab').forEach(function(b){
+      b.classList.toggle('on',b.dataset.tab===name);
+    });
+    if(name==='home'){renderHome()}
+    if(name==='pet'){renderPet()}
+    if(name==='me'){renderMe()}
+  }
+  function cur(){return LESSONS[state.lesson].phrases[state.idx]}
+  function renderMap(){
+    var list=$('stageList');
+    list.innerHTML='';
+    state.stages.forEach(function(s,i){
+      var el=document.createElement('button');
+      el.className='stage-item'+(s.unlocked?'':' locked');
+      el.setAttribute('aria-label',s.name);
+      el.innerHTML='<span class="scircle '+s.color+'">'+(s.unlocked?s.emoji:'🔒')+'</span>'+
+        '<span class="sinfo"><b>第'+(i+1)+'关 · '+s.name+'</b><i>'+(s.done?'已通关，复习一下吧！':s.unlocked?'快来挑战吧！':'需要 '+s.need+' 颗星星解锁')+'</i></span>'+
+        '<span class="sgo">'+(s.done?'✅':s.unlocked?'开始 ▶':'🔒')+'</span>';
+      el.addEventListener('click',function(){onStage(i)});
+      list.appendChild(el);
+    });
+  }
+  function renderQuest(){
+    var done=Math.min(state.questDone,5);
+    $('questBar').style.width=(done/5*100)+'%';
+    $('questTxt').textContent='跟读 5 句（'+done+'/5）';
+  }
+  function renderHome(){
+    setStars(state.stars);
+    renderQuest();
+    renderMap();
+  }
+  function onStage(i){
+    var s=state.stages[i];
+    if(!s.unlocked){
+      showToast('先收集 '+s.need+' 颗星星才能解锁哦！');
+      return;
+    }
+    state.lesson=i;
+    state.idx=0;
+    renderLesson();
+    setScreen('lesson');
+  }
+  function renderLesson(){
+    var L=LESSONS[state.lesson];
+    $('lesTitle').textContent='第'+(state.lesson+1)+'关 · '+L.title;
+    $('lesSub').textContent=L.sub;
+    var p=cur();
+    $('phEn').textContent=p.en;
+    $('phZh').textContent=p.zh;
+    $('phEmoji').textContent=p.emoji;
+    var dots=$('dots');
+    dots.innerHTML='';
+    L.phrases.forEach(function(ph,i){
+      var d=document.createElement('i');
+      d.className='dot'+(i<state.idx?' on':i===state.idx?' cur':'');
+      dots.appendChild(d);
+    });
+    $('cardTalk').classList.remove('talking');
+    $('btnNextPhrase').textContent=(state.idx===L.phrases.length-1)?'收星星 ✨':'下一句 ➡️';
+  }
+  function playPhrase(){
+    clearTimeout(state.timers.talk);
+    var card=$('cardTalk');
+    card.classList.add('talking');
+    speak();
+    state.timers.talk=setTimeout(function(){
+      card.classList.remove('talking');
+    },2400);
+  }
+  function startRecord(){
+    clearInterval(state.timers.rec);
+    clearTimeout(state.timers.rec2);
+    $('recOverlay').classList.add('on');
+    $('recWave').classList.remove('on');
+    var c=3;
+    $('recCount').textContent=c;
+    $('recHint').textContent='准备…深呼吸，大声读出来！';
+    beep();
+    state.timers.rec=setInterval(function(){
+      c--;
+      if(c>0){
+        $('recCount').textContent=c;
+        beep();
+      }else{
+        clearInterval(state.timers.rec);
+        $('recWave').classList.add('on');
+        $('recCount').textContent='说！';
+        $('recHint').textContent='大声读出来吧！';
+        beep();
+        state.timers.rec2=setTimeout(finishRecord,2600);
+      }
+    },900);
+  }
+  function cancelRecord(){
+    clearInterval(state.timers.rec);
+    clearTimeout(state.timers.rec2);
+    $('recOverlay').classList.remove('on');
+  }
+  function finishRecord(){
+    $('recOverlay').classList.remove('on');
+    state.questDone=Math.min(5,state.questDone+1);
+    showResult();
+  }
+  function showResult(){
+    chime();
+    confetti();
+    $('resultOverlay').classList.add('on');
+    $('resScore').textContent=96+Math.floor(Math.random()*4);
+    var sts=$('resStars').children;
+    for(var i=0;i<sts.length;i++){
+      sts[i].classList.remove('pop');
+      void sts[i].offsetWidth;
+      sts[i].style.animationDelay=(i*.18)+'s';
+      sts[i].classList.add('pop');
+    }
+  }
+  function nextPhrase(){
+    $('resultOverlay').classList.remove('on');
+    if(state.idx>=LESSONS[state.lesson].phrases.length-1){
+      finishStage();
+    }else{
+      state.idx++;
+      renderLesson();
+    }
+  }
+  function finishStage(){
+    var L=LESSONS[state.lesson];
+    state.stages[state.lesson].done=true;
+    setStars(state.stars+12);
+    var nx=state.lesson+1;
+    if(nx<state.stages.length && !state.stages[nx].unlocked){
+      state.stages[nx].unlocked=true;
+    }
+    $('stageOverlay').classList.add('on');
+    $('stageName').textContent=L.title+' 通关啦！';
+    $('stageGain').textContent='+12';
+    var tip=$('stageNext');
+    if(nx<state.stages.length){
+      tip.style.display='block';
+      tip.textContent='第 '+(nx+1)+' 关 · '+state.stages[nx].name+' 已解锁！';
+    }else{
+      tip.style.display='none';
+    }
+    chime();
+    confetti();
+  }
+  function closeStage(){
+    $('stageOverlay').classList.remove('on');
+    setScreen('home');
+  }
+  function goNextStage(){
+    $('stageOverlay').classList.remove('on');
+    if(state.lesson+1<state.stages.length){
+      onStage(state.lesson+1);
+    }else{
+      setScreen('home');
+    }
+  }  var PETS=[
+    {emoji:'🥚',name:'神秘蛋',mood:'轻轻敲一敲，用小星星喂它吧！'},
+    {emoji:'🐣',name:'毛茸茸',mood:'好饿呀～再喂几颗星星就变身啦！'},
+    {emoji:'🦊',name:'小狐狸莉莉',mood:'我是莉莉！陪你大声说英语～'}
+  ];
+  function petLevel(){return state.pet.feeds>=8?2:state.pet.feeds>=3?1:0}
+  function renderPet(){
+    var l=petLevel(),p=PETS[l];
+    $('petEmoji').textContent=p.emoji;
+    $('petName').textContent=p.name;
+    $('petMood').textContent=p.mood;
+    var area=$('petArea');
+    area.className='pet-area lv'+l;
+    var cur=state.pet.feeds;
+    var show=cur;
+    if(l===1){show=cur-3}
+    if(l===2){show=5}
+    var pct=Math.min(100,show/(l===0?3:5)*100);
+    $('petBar').style.width=pct+'%';
+    $('petProg').textContent=l===2?'已经是最棒的样子啦！':'成长 '+(l===0?show+'/3':show+'/5');
+    $('btnFeed').disabled=state.stars<5||state.pet.feeds>=8;
+    $('btnFeed').textContent=state.pet.feeds>=8?'已经长大啦 ❤️':'🍬 喂一颗星星（-5）';
+  }
+  function feedPet(){
+    if(state.pet.feeds>=8){
+      showToast('莉莉已经长大啦！');
+      return;
+    }
+    if(state.stars<5){
+      showToast('星星不够啦，去闯关赚星星吧！');
+      return;
+    }
+    setStars(state.stars-5);
+    state.pet.feeds++;
+    chime();
+    var before=petLevel();
+    var area=$('petArea');
+    area.classList.remove('bump');
+    void area.offsetWidth;
+    area.classList.add('bump');
+    renderPet();
+    var after=petLevel();
+    if(after>before){
+      confetti();
+      setTimeout(function(){showToast(PETS[after].name+' 诞生啦！🎉')},400);
+    }
+  }
+  function renderMe(){
+    $('meDays').textContent='12';
+    $('meTalks').textContent=86+state.questDone;
+    $('meStars').textContent=state.stars;
+    var badges=[
+      ['🎉','第一次开口',true],
+      ['🔥','连续 3 天',state.streak>=3],
+      ['⭐','收集 100 颗星',state.stars>=100],
+      ['🦊','和莉莉交朋友',state.pet.feeds>=8]
+    ];
+    var g=$('badgeGrid');
+    g.innerHTML='';
+    badges.forEach(function(b){
+      var d=document.createElement('div');
+      d.className='badge'+(b[2]?'':' locked');
+      d.innerHTML='<span>'+b[0]+'</span><b>'+b[1]+'</b>';
+      g.appendChild(d);
+    });
+  }
+  function toggleSound(){
+    state.soundOn=!state.soundOn;
+    $('swSound').classList.toggle('on',state.soundOn);
+    showToast(state.soundOn?'提示音已开启 🔊':'提示音已关闭 🔇');
+  }
+  document.querySelectorAll('.tab').forEach(function(b){
+    b.addEventListener('click',function(){setScreen(b.dataset.tab)});
+  });
+  $('btnBack').addEventListener('click',function(){setScreen('home')});
+  $('btnListen').addEventListener('click',playPhrase);
+  $('btnMic').addEventListener('click',startRecord);
+  $('btnCancelRec').addEventListener('click',cancelRecord);
+  $('btnAgain').addEventListener('click',function(){
+    $('resultOverlay').classList.remove('on');
+    setTimeout(startRecord,150);
+  });
+  $('btnNextPhrase').addEventListener('click',nextPhrase);
+  $('btnStageHome').addEventListener('click',closeStage);
+  $('btnStageNext').addEventListener('click',goNextStage);
+  $('btnQuest').addEventListener('click',function(){onStage(0)});
+  $('btnFeed').addEventListener('click',feedPet);
+  $('swSound').addEventListener('click',toggleSound);
+  $('parentZone').addEventListener('click',function(){
+    showToast('家长专区正在建设中，敬请期待～');
+  });
+  setStars(state.stars);
+  setScreen('home');
+})();
+</script>
+</div>
+</body>
+</html>
