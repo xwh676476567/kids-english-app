@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KIDX ???? ? ????????</title>
+<title>KIDX 英语口语 · 孩子的专属口语课</title>
 </head>
 <body style="margin:0;background:#dbe2f0">
-﻿<div id="kidapp" class="kp">
+<div id="kidapp" class="kp">
 <style>
 #kidapp{--kp-bg:light-dark(#fdf3e3,#141824);--kp-panel:light-dark(#ffffff,#262c40);--kp-panel2:light-dark(#fff8ea,#2c3248);--kp-ink:light-dark(#3b2d5e,#f3eefc);--kp-sub:light-dark(#9a8cb8,#a79ec9);--kp-line:light-dark(#f2e4cd,#3a4156);--kp-sky:#6ec6ff;--kp-sky-d:#3f9fe0;--kp-sun:#ffcf4d;--kp-sun-d:#f0a83a;--kp-coral:#ff7a6b;--kp-coral-d:#e75f4f;--kp-mint:#5ee6b0;--kp-mint-d:#35c98e;--kp-grape:#a78bfa;--kp-grape-d:#8568ee;--kp-shadow:rgba(59,45,94,.16);display:flex;justify-content:center;align-items:flex-start;padding:14px 10px 24px;font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Segoe UI",system-ui,sans-serif;color:var(--kp-ink);-webkit-font-smoothing:antialiased}
 #kidapp *{box-sizing:border-box;margin:0;padding:0}
@@ -240,11 +240,49 @@
 @keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.3) rotate(-6deg)}100%{transform:scale(1)}}
 @media (max-width:380px){#kidapp .bubble .en{font-size:23px}#kidapp .mascot{font-size:62px}}
 @media (max-height:700px){#kidapp .phone{height:min(790px,96vh)}}
+#kidapp .login-logo{width:86px;height:86px;border-radius:30px;background:linear-gradient(135deg,#2ecc71,#16a34a);display:flex;align-items:center;justify-content:center;font-size:46px;box-shadow:0 8px 0 rgba(22,163,74,.22);margin:8px auto 16px}
+#kidapp .login-title{font-size:21px;font-weight:900;text-align:center;line-height:1.35}
+#kidapp .login-sub{font-size:12.5px;color:var(--kp-sub);font-weight:700;text-align:center;margin-top:6px;line-height:1.7}
+#kidapp .wx-step{background:var(--kp-panel);border:1px solid var(--kp-line);border-radius:24px;padding:18px;box-shadow:0 4px 0 var(--kp-shadow);margin-top:22px}
+#kidapp .wx-step label{font-size:12px;font-weight:900;color:var(--kp-sub);display:block;margin:12px 0 8px}
+#kidapp .sms-row{display:flex;gap:8px}
+#kidapp .sms-row .name-input{flex:1;min-width:0}
+#kidapp .sms-btn{flex:none;border-radius:14px;background:linear-gradient(135deg,var(--kp-mint),var(--kp-mint-d));color:#fff;font-weight:900;font-size:12.5px;padding:0 13px;box-shadow:0 4px 0 var(--kp-shadow);transition:opacity .2s}
+#kidapp .sms-btn:disabled{opacity:.5;cursor:default;transform:none}
+#kidapp .phone-input{width:100%;border:1px solid var(--kp-line);border-radius:14px;padding:11px 14px;font-size:15px;font-weight:800;background:var(--kp-panel2);color:var(--kp-ink);outline:none;font-family:inherit}
+#kidapp .wx-fake{text-align:center;padding:6px 0 2px}
+#kidapp .wx-fake .wface{width:64px;height:64px;border-radius:20px;background:linear-gradient(135deg,#2ecc71,#16a34a);display:flex;align-items:center;justify-content:center;font-size:34px;margin:6px auto 10px;box-shadow:0 5px 0 rgba(22,163,74,.22)}
 </style>
 <div class="phone" id="phone">
   <div class="bezel">
     <div class="statusbar"><span><span class="sig"><i></i><i></i><i></i><i></i></span>9:41</span><span class="batt"><b></b><em></em></span></div>
     <div class="viewport">
+      <section class="screen" id="scr-login">
+        <div style="text-align:center;padding-top:30px">
+          <div class="login-logo">💬</div>
+          <h2 class="login-title" id="loginTitle">欢迎来到 KIDX 英语口语</h2>
+          <p class="login-sub">微信登录并绑定手机号后<br>孩子的专属课程和进度，换设备也不丢哦</p>
+        </div>
+        <div style="margin-top:24px">
+          <button class="bttn grad-mint" id="btnWxLogin" style="width:100%;font-size:16px">💚 微信一键登录</button>
+          <button class="bttn" id="btnGuest" style="width:100%;margin-top:14px;background:var(--kp-panel2);color:var(--kp-ink);border:1px solid var(--kp-line);box-shadow:0 4px 0 var(--kp-shadow)">先随便逛逛 👀</button>
+        </div>
+        <div class="wx-step" id="phoneStep" style="display:none">
+          <b style="font-size:15px">绑定手机号 📱</b>
+          <p style="font-size:12px;color:var(--kp-sub);font-weight:700;margin-top:6px">绑定后，孩子的学习进度就跟着这个账号走啦</p>
+          <label>手机号码</label>
+          <input class="phone-input" id="phoneNum" type="tel" maxlength="11" placeholder="请输入手机号">
+          <label>验证码</label>
+          <div class="sms-row">
+            <input class="name-input" id="smsCode" maxlength="6" placeholder="输入验证码">
+            <button class="sms-btn" id="btnSms">获取验证码</button>
+          </div>
+          <button class="bttn grad-coral" id="btnBind" style="width:100%;margin-top:18px">确认绑定，开始学习 🚀</button>
+          <div style="text-align:center;margin-top:12px">
+            <button id="btnSkipBind" style="font-size:12px;font-weight:800;color:var(--kp-sub);text-decoration:underline">暂不绑定，直接进入</button>
+          </div>
+        </div>
+      </section>
       <section class="screen" id="scr-user">
         <div style="text-align:center;padding-top:16px">
           <div style="font-size:46px">👋</div>
@@ -355,6 +393,7 @@
         </div>
         <div class="badge-grid" id="badgeGrid"></div>
         <div class="set-list">
+          <div class="set-row">📱 登录账号<span id="meAcc" style="font-size:12.5px;color:var(--kp-sub);font-weight:800">未绑定</span></div>
           <div class="set-row">🔊 提示音<button class="sw on" id="swSound"></button></div>
           <div class="set-row">🔄 切换小盆友<button class="bttn grad-sky" id="btnMeSwitch" style="padding:8px 14px;font-size:12px">去切换</button></div>
           <div class="set-row">👨‍👩‍👧 家长专区<button class="bttn grad-grape" id="parentZone" style="padding:8px 14px;font-size:12px">管理</button></div>
@@ -398,6 +437,23 @@
           <div id="manageList"></div>
           <div class="row" style="margin-top:16px">
             <button class="bttn grad-sun" id="btnMngClose">完成</button>
+          </div>
+          <div style="text-align:center;margin-top:12px">
+            <button id="btnLogout" style="font-size:12px;font-weight:900;color:var(--kp-coral-d);text-decoration:underline">退出微信登录</button>
+          </div>
+        </div>
+      </div>
+      <div class="ovl stage-ovl" id="wxOverlay">
+        <div class="stage-card">
+          <b class="t">微信授权登录</b>
+          <div class="wx-fake">
+            <div class="wface" id="wxFace">🐼</div>
+            <b id="wxName" style="font-size:16px">微信用户</b>
+            <div class="next-tip" style="color:var(--kp-sub);background:none">KIDX 申请获取你的微信昵称和头像<br>用于保存孩子的学习进度</div>
+          </div>
+          <div class="row">
+            <button class="bttn grad-sun" id="btnWxDeny">拒绝</button>
+            <button class="bttn grad-mint" id="btnWxAllow">允许</button>
           </div>
         </div>
       </div>
@@ -531,8 +587,8 @@
   var FACES=['🐻','🐰','🦊','🐱','🐶','🐼','⭐','🌈'];
   var AGES=['3-5 岁','6-8 岁','9-12 岁'];
   var DBKEY='kidxApp_v2';
-  var DB={users:[],current:null,data:{},sound:true};
-  var state={curUnit:null,idx:0,testIdx:0,testOk:0,timers:{},newFace:0,newAge:0,delArm:null,lastScore:0};
+  var DB={users:[],current:null,data:{},sound:true,account:null};
+  var state={curUnit:null,idx:0,testIdx:0,testOk:0,timers:{},newFace:0,newAge:0,delArm:null,lastScore:0,wx:null,sms:null};
   function $(id){return document.getElementById(id)}
   function save(){try{localStorage.setItem(DBKEY,JSON.stringify(DB))}catch(e){}}
   function load(){try{var s=localStorage.getItem(DBKEY);if(s)DB=JSON.parse(s)}catch(e){}}
@@ -558,14 +614,14 @@
   function speak(en){try{if(!('speechSynthesis' in window))return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(en);u.lang='en-US';u.rate=.82;speechSynthesis.speak(u)}catch(e){}}
   function confetti(){var wrap=$('burst');wrap.innerHTML='';var colors=['#ffcf4d','#ff7a6b','#5ee6b0','#6ec6ff','#a78bfa'];for(var i=0;i<34;i++){var c=document.createElement('i');c.style.left=(4+Math.random()*92)+'%';c.style.background=colors[i%colors.length];c.style.animationDelay=(Math.random()*.5)+'s';c.style.setProperty('--dx',(Math.random()*180-90)+'px');c.style.setProperty('--rot',(Math.random()*720-360)+'deg');wrap.appendChild(c)}}
   function setScreen(name){
-    ['user','test','home','lesson','pet','me'].forEach(function(n){$('scr-'+n).classList.toggle('active',n===name)});
+    ['login','user','test','home','lesson','pet','me'].forEach(function(n){$('scr-'+n).classList.toggle('active',n===name)});
     if(name!=='lesson'){
       clearInterval(state.timers.rec);clearTimeout(state.timers.rec2);clearTimeout(state.timers.talk);
       $('recOverlay').classList.remove('on');$('resultOverlay').classList.remove('on');$('stageOverlay').classList.remove('on');$('manageOverlay').classList.remove('on');
       $('cardTalk').classList.remove('talking');
     }
     $('phone').classList.toggle('in-lesson',name==='lesson');
-    $('phone').classList.toggle('no-tab',name==='user'||name==='test');
+    $('phone').classList.toggle('no-tab',name==='user'||name==='test'||name==='login');
     document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('on',b.dataset.tab===name)});
     if(name==='home')renderHome();
     if(name==='pet')renderPet();
@@ -1055,6 +1111,8 @@
     $('meDays').textContent=d.days;
     $('meTalks').textContent=d.talks;
     $('meStars').textContent=d.stars;
+    var acc=DB.account||{};
+    $('meAcc').textContent=acc.phone?('已绑定 '+acc.phone.slice(0,3)+'****'+acc.phone.slice(7)):(acc.wx?('微信已登录 '+(acc.wx.name||'')):'未绑定');
     var badges=[
       ['🎉','第一次开口',d.talks>=1],
       ['🔥','连续 3 天',d.streak>=3],
@@ -1123,21 +1181,99 @@
     });
     $('manageOverlay').classList.add('on');
   }
-  load();
-  if(!DB.users.length||!DB.current){
-    setScreen('user');
-  }else{
-    var d=me();
-    if(d&&!d.tested){
-      setScreen('test');
-      renderTest();
-    }else if(d){
-      checkDay();
-      setScreen('home');
+  function renderLogin(){
+    var b=$('btnSms');b.disabled=false;b.textContent='获取验证码';
+    $('phoneNum').value='';$('smsCode').value='';state.sms=null;
+    if(DB.account&&DB.account.wx){
+      $('loginTitle').textContent='已通过微信登录 ✓';
+      $('btnWxLogin').style.display='none';
+      $('btnGuest').style.display='none';
+      $('phoneStep').style.display='block';
     }else{
-      DB.current=null;
-      setScreen('user');
+      $('loginTitle').textContent='欢迎来到 KIDX 英语口语';
+      $('btnWxLogin').style.display='';
+      $('btnGuest').style.display='';
+      $('phoneStep').style.display='none';
     }
+  }
+  function startWxAuth(){
+    var faces=['🐼','🦊','🐰','🐯','🐻','🐨','🐧','🦄'];
+    var names=['甜甜妈妈','豆豆爸爸','乐乐妈妈','果果妈妈','小可爱'];
+    state.wx={face:faces[Math.floor(Math.random()*faces.length)],name:names[Math.floor(Math.random()*names.length)]};
+    $('wxFace').textContent=state.wx.face;
+    $('wxName').textContent=state.wx.name;
+    $('wxOverlay').classList.add('on');
+  }
+  function wxDeny(){
+    $('wxOverlay').classList.remove('on');
+    showToast('已取消授权');
+  }
+  function wxAllow(){
+    $('wxOverlay').classList.remove('on');
+    DB.account={wx:state.wx,phone:'',loginAt:Date.now()};
+    save();
+    chime();
+    $('loginTitle').textContent='已通过微信登录 ✓';
+    $('btnWxLogin').style.display='none';
+    $('btnGuest').style.display='none';
+    $('phoneStep').style.display='block';
+    showToast('微信登录成功，请绑定手机号');
+  }
+  function sendSms(){
+    var n=$('phoneNum').value.trim();
+    if(!/^1\d{10}$/.test(n)){showToast('请输入 11 位手机号');return}
+    state.sms='1234';
+    var b=$('btnSms'),left=60;
+    b.disabled=true;
+    var t=setInterval(function(){
+      left--;b.textContent=left+'s';
+      if(left<=0){clearInterval(t);b.disabled=false;b.textContent='获取验证码';showToast('验证码已发送，请查收短信')}
+    },1000);
+    showToast('演示验证码：1234（正式版走短信）');
+  }
+  function bindPhone(){
+    var n=$('phoneNum').value.trim();
+    var c=$('smsCode').value.trim();
+    if(!/^1\d{10}$/.test(n)){showToast('手机号格式不对哦');return}
+    if(!state.sms){showToast('请先获取验证码');return}
+    if(c!==state.sms){showToast('验证码不对，再试试');return}
+    DB.account=DB.account||{};
+    DB.account.phone=n;
+    save();
+    confetti();
+    setTimeout(function(){
+      showToast('绑定成功！欢迎 '+((DB.account.wx&&DB.account.wx.name)||'你')+' 👋');
+      enterApp();
+    },600);
+  }
+  function enterApp(){
+    if(!DB.users.length||!DB.current){setScreen('user')}
+    else{
+      var d=me();
+      if(d&&!d.tested){setScreen('test');renderTest()}
+      else if(d){checkDay();setScreen('home')}
+      else{DB.current=null;setScreen('user')}
+    }
+  }
+  function guestLogin(){
+    showToast('游客模式：进度只保存在这台设备上哦');
+    enterApp();
+  }
+  function logout(){
+    DB.account=null;
+    DB.current=null;
+    save();
+    $('manageOverlay').classList.remove('on');
+    showToast('已退出登录');
+    setScreen('login');
+    renderLogin();
+  }
+  load();
+  if(!DB.account){
+    setScreen('login');
+    renderLogin();
+  }else{
+    enterApp();
   }
   document.querySelectorAll('.tab').forEach(function(b){
     b.addEventListener('click',function(){
@@ -1162,6 +1298,16 @@
   $('btnFeed').addEventListener('click',feedPet);
   $('swSound').addEventListener('click',toggleSound);
   $('btnCreate').addEventListener('click',createUser);
+  $('btnWxLogin').addEventListener('click',startWxAuth);
+  $('btnGuest').addEventListener('click',guestLogin);
+  $('btnWxAllow').addEventListener('click',wxAllow);
+  $('btnWxDeny').addEventListener('click',wxDeny);
+  $('btnSms').addEventListener('click',sendSms);
+  $('btnBind').addEventListener('click',bindPhone);
+  $('btnSkipBind').addEventListener('click',function(){showToast('随时可以在「我的」里绑定手机号 📱');enterApp()});
+  $('btnLogout').addEventListener('click',logout);
+  $('phoneNum').addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').slice(0,11)});
+  $('smsCode').addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').slice(0,6)});
   $('parentZone').addEventListener('click',openManage);
   $('btnMngClose').addEventListener('click',function(){$('manageOverlay').classList.remove('on')});
   $('newName').addEventListener('keydown',function(e){if(e.key==='Enter')createUser()});
