@@ -252,37 +252,59 @@
 #kidapp .phone-input{width:100%;border:1px solid var(--kp-line);border-radius:14px;padding:11px 14px;font-size:15px;font-weight:800;background:var(--kp-panel2);color:var(--kp-ink);outline:none;font-family:inherit}
 #kidapp .wx-fake{text-align:center;padding:6px 0 2px}
 #kidapp .wx-fake .wface{width:64px;height:64px;border-radius:20px;background:linear-gradient(135deg,#2ecc71,#16a34a);display:flex;align-items:center;justify-content:center;font-size:34px;margin:6px auto 10px;box-shadow:0 5px 0 rgba(22,163,74,.22)}
+
+#kidapp .stage-card2{background:var(--kp-panel);border:1px solid var(--kp-line);border-radius:24px;padding:16px;box-shadow:0 4px 0 var(--kp-shadow);margin-bottom:14px;position:relative;overflow:hidden}
+#kidapp .stage-card2 .sc-head{display:flex;align-items:center;gap:10px}
+#kidapp .stage-card2 .sc-ic{width:48px;height:48px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;background:var(--kp-panel2);box-shadow:inset 0 -3px 0 rgba(0,0,0,.06);flex:none}
+#kidapp .stage-card2 b{display:block;font-size:15px;font-weight:900}
+#kidapp .stage-card2 .sc-sub{font-size:11.5px;color:var(--kp-sub);font-weight:700;margin-top:2px}
+#kidapp .stage-card2 .sc-btn{margin-left:auto;font-size:12px;font-weight:900;color:#fff;background:linear-gradient(90deg,var(--kp-sky-d),var(--kp-grape-d));padding:7px 12px;border-radius:999px;flex:none}
+#kidapp .stage-card2 .sc-row{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+#kidapp .stage-card2 .sc-tag{font-size:10.5px;font-weight:800;color:var(--kp-sub);background:var(--kp-panel2);border:1px solid var(--kp-line);padding:4px 9px;border-radius:999px}
+#kidapp .stage-card2 .sc-plan{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:11.5px;font-weight:800;color:var(--kp-sky-d);background:rgba(110,198,255,.10);border:1px dashed var(--kp-sky);padding:9px 11px;border-radius:14px}
+#kidapp .cartoon{background:linear-gradient(180deg,#bfe3ff,#eaf9ff 60%,#d9f7d6);z-index:5}
+#kidapp .cartoon .back{background:rgba(255,255,255,.85);border-color:#cfe6ff}
+#kidapp .ct-stage{position:relative;height:330px;border-radius:28px;overflow:hidden;background:linear-gradient(#8fd0ff,#bfe7ff 55%,#8fe08f 55%,#6ecf6e);box-shadow:0 6px 0 rgba(59,45,94,.14);margin-top:6px}
+#kidapp .ct-sun{position:absolute;top:18px;right:24px;font-size:44px;animation:ctspin 14s linear infinite;filter:drop-shadow(0 4px 6px rgba(255,190,60,.6))}
+#kidapp .ct-cloud{position:absolute;top:26px;left:-60px;font-size:40px;opacity:.9;animation:ctcloud 26s linear infinite}
+#kidapp .ct-cloud2{position:absolute;top:86px;left:-90px;font-size:30px;opacity:.75;animation:ctcloud 34s linear infinite}
+#kidapp .ct-char{position:absolute;left:50%;bottom:74px;transform:translateX(-50%);font-size:88px;animation:cthop 1.1s ease-in-out infinite;filter:drop-shadow(0 8px 6px rgba(0,0,0,.18))}
+#kidapp .ct-bubble{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);width:calc(100% - 36px);background:rgba(255,255,255,.94);border-radius:20px;padding:12px 14px;text-align:center;box-shadow:0 4px 0 rgba(59,45,94,.12);z-index:3}
+#kidapp .ct-bubble .ct-en{font-size:24px;font-weight:900;color:#2a6fd6;letter-spacing:.5px}
+#kidapp .ct-bubble .ct-zh{font-size:14px;font-weight:800;color:#4a3a6b;margin-top:2px}
+#kidapp .ct-flag{position:absolute;top:14px;left:14px;font-size:11px;font-weight:900;color:#fff;background:rgba(255,122,107,.9);padding:5px 11px;border-radius:999px;z-index:3}
+#kidapp .ct-sub{position:absolute;top:14px;right:14px;font-size:11px;font-weight:900;color:#2a6fd6;background:rgba(255,255,255,.85);padding:5px 11px;border-radius:999px;z-index:3}
+#kidapp .ct-controls{display:flex;gap:10px;margin-top:16px}
+#kidapp .ct-tip{text-align:center;font-size:12px;font-weight:800;color:var(--kp-sub);margin-top:12px}
+#kidapp .plan-hero{background:linear-gradient(135deg,var(--kp-sun),var(--kp-coral));border-radius:26px;padding:18px;color:#fff;box-shadow:0 5px 0 var(--kp-shadow);position:relative;overflow:hidden}
+#kidapp .plan-hero .ph-ic{font-size:40px;line-height:1}
+#kidapp .plan-hero b{font-size:19px;font-weight:900;display:block;margin:6px 0 2px}
+#kidapp .plan-hero .ph-row{display:flex;gap:10px;margin-top:10px}
+#kidapp .plan-hero .ph-chip{background:rgba(255,255,255,.22);font-size:11px;font-weight:900;padding:5px 10px;border-radius:999px}
+#kidapp .point-list{display:flex;flex-direction:column;gap:8px}
+#kidapp .point-item{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:800}
+#kidapp .point-item i{width:22px;height:22px;border-radius:50%;background:rgba(94,230,176,.18);color:#0c7a52;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:12px;flex:none}
+#kidapp .plan-text{font-size:12.5px;font-weight:700;color:var(--kp-sub);line-height:1.7;background:var(--kp-panel2);border:1px solid var(--kp-line);border-radius:16px;padding:12px 14px}
+#kidapp .stage-switch{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#kidapp .sw-item{background:var(--kp-panel2);border:1px solid var(--kp-line);border-radius:18px;padding:12px;text-align:left;transition:transform .12s}
+#kidapp .sw-item:active{transform:scale(.97)}
+#kidapp .sw-item .sw-ic{font-size:26px}
+#kidapp .sw-item b{display:block;font-size:13px;font-weight:900;margin-top:4px}
+#kidapp .sw-item i{display:block;font-size:10.5px;color:var(--kp-sub);font-weight:700;margin-top:2px;font-style:normal}
+#kidapp .sw-item.on{outline:3px solid var(--kp-mint);outline-offset:1px}
+@keyframes ctspin{to{transform:rotate(360deg)}}
+@keyframes ctcloud{to{transform:translateX(calc(100vw + 200px))}}
+@keyframes cthop{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-14px)}}
+
+#kidapp .lt-coral{color:#c4452f;background:rgba(255,122,107,.18)}
+#kidapp .lt-navy{color:#3a4f9e;background:rgba(120,140,220,.18)}
+#kidapp .scircle.st4{background:linear-gradient(135deg,#ff9a8b,#e75f4f)}
+#kidapp .scircle.st5{background:linear-gradient(135deg,#8ea0e8,#5b6fd8)}
 </style>
 <div class="phone" id="phone">
   <div class="bezel">
     <div class="statusbar"><span><span class="sig"><i></i><i></i><i></i><i></i></span>9:41</span><span class="batt"><b></b><em></em></span></div>
     <div class="viewport">
-      <section class="screen" id="scr-login">
-        <div style="text-align:center;padding-top:30px">
-          <div class="login-logo">💬</div>
-          <h2 class="login-title" id="loginTitle">欢迎来到 KIDX 英语口语</h2>
-          <p class="login-sub">微信登录并绑定手机号后<br>孩子的专属课程和进度，换设备也不丢哦</p>
-        </div>
-        <div style="margin-top:24px">
-          <button class="bttn grad-mint" id="btnWxLogin" style="width:100%;font-size:16px">💚 微信一键登录</button>
-          <button class="bttn" id="btnGuest" style="width:100%;margin-top:14px;background:var(--kp-panel2);color:var(--kp-ink);border:1px solid var(--kp-line);box-shadow:0 4px 0 var(--kp-shadow)">先随便逛逛 👀</button>
-        </div>
-        <div class="wx-step" id="phoneStep" style="display:none">
-          <b style="font-size:15px">绑定手机号 📱</b>
-          <p style="font-size:12px;color:var(--kp-sub);font-weight:700;margin-top:6px">绑定后，孩子的学习进度就跟着这个账号走啦</p>
-          <label>手机号码</label>
-          <input class="phone-input" id="phoneNum" type="tel" maxlength="11" placeholder="请输入手机号">
-          <label>验证码</label>
-          <div class="sms-row">
-            <input class="name-input" id="smsCode" maxlength="6" placeholder="输入验证码">
-            <button class="sms-btn" id="btnSms">获取验证码</button>
-          </div>
-          <button class="bttn grad-coral" id="btnBind" style="width:100%;margin-top:18px">确认绑定，开始学习 🚀</button>
-          <div style="text-align:center;margin-top:12px">
-            <button id="btnSkipBind" style="font-size:12px;font-weight:800;color:var(--kp-sub);text-decoration:underline">暂不绑定，直接进入</button>
-          </div>
-        </div>
-      </section>
       <section class="screen" id="scr-user">
         <div style="text-align:center;padding-top:16px">
           <div style="font-size:46px">👋</div>
@@ -322,6 +344,63 @@
           <button class="bttn grad-coral act-btn" id="btnTestNext" style="display:none;margin-top:14px">下一题 ➡️</button>
         </div>
       </section>
+
+      <section class="screen" id="scr-level">
+        <div style="padding-top:8px">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <button class="back" id="btnLevelBack">✕</button>
+            <div class="lt" style="flex:1"><b style="font-size:16px">选择学习水平</b><span>选一个阶段，马上开始学习</span></div>
+          </div>
+          <p style="font-size:12.5px;color:var(--kp-sub);font-weight:700;line-height:1.7;margin:6px 0 14px">根据自己目前的情况选一个阶段就可以啦～之后随时可以在「学习计划」里切换哦</p>
+          <div class="stage-switch" id="levelList"></div>
+        </div>
+      </section>
+      <section class="screen cartoon" id="scr-cartoon">
+        <div class="les-top">
+          <button class="back" id="btnCartoonBack">‹</button>
+          <div class="lt"><b id="ctTitle">动画小剧场</b><span id="ctSub">看动画 · 学英语</span></div>
+        </div>
+        <div class="ct-stage">
+          <span class="ct-flag" id="ctFlag">🎬 第 1 集</span>
+          <span class="ct-sub" id="ctSub2">第 1 / 4 句</span>
+          <div class="ct-sun">☀️</div>
+          <div class="ct-cloud">☁️</div>
+          <div class="ct-cloud2">🌤️</div>
+          <div class="ct-char" id="ctChar">🐮</div>
+          <div class="ct-bubble">
+            <div class="ct-en" id="ctEn">Hello!</div>
+            <div class="ct-zh" id="ctZh">你好！</div>
+          </div>
+        </div>
+        <div class="dots" id="ctDots"></div>
+        <div class="ct-controls">
+          <button class="bttn grad-sky" id="btnCtPlay" style="flex:1">🔊 听一句</button>
+          <button class="bttn grad-coral" id="btnCtNext" style="flex:1">下一句 ➡️</button>
+        </div>
+        <div class="ct-tip" id="ctTip">像看动画片一样跟读，学完这集就开始闯关！</div>
+      </section>
+      <section class="screen" id="scr-plan">
+        <div class="les-top">
+          <button class="back" id="btnPlanBack">‹</button>
+          <div class="lt"><b>我的学习计划</b><span>词汇 · 考点 · 每周安排</span></div>
+        </div>
+        <div class="plan-hero" id="planHero"></div>
+        <div class="panel" style="margin-top:14px">
+          <b style="font-size:14px;font-weight:900;display:block;margin-bottom:10px">🎯 本阶段考点</b>
+          <div class="point-list" id="planPoints"></div>
+        </div>
+        <div class="panel" style="margin-top:12px">
+          <b style="font-size:14px;font-weight:900;display:block;margin-bottom:10px">📅 每周学习计划</b>
+          <div class="plan-text" id="planText"></div>
+        </div>
+        <h3 class="sec" style="margin-top:16px">🗺️ 本阶段课程</h3>
+        <div class="stage-list" id="planUnits"></div>
+        <div class="panel" style="margin-top:14px">
+          <b style="font-size:14px;font-weight:900;display:block;margin-bottom:12px">🔀 切换学习阶段</b>
+          <div class="stage-switch" id="planSwitch"></div>
+        </div>
+        <div style="text-align:center;font-size:11px;color:var(--kp-sub);font-weight:700;margin:12px 0 4px">想学哪个阶段，一点就能切换～</div>
+      </section>
       <section class="screen" id="scr-home">
         <div class="home-head">
           <div class="user" id="homeUser"></div>
@@ -338,6 +417,7 @@
           <div class="qrow"><span id="questTxt">今天完成 0/3</span><span class="chip hot" id="questStreak">🔥 连续 1 天</span></div>
           <div id="taskList"></div>
         </div>
+        <div id="stageCard"></div>
         <h3 class="sec">🗺️ 我的课程地图 <span class="lvl-chip" id="mapLevel"></span></h3>
         <div class="stage-list" id="stageList"></div>
         <div class="next-panel" id="nextLvPanel"></div>
@@ -393,7 +473,6 @@
         </div>
         <div class="badge-grid" id="badgeGrid"></div>
         <div class="set-list">
-          <div class="set-row">📱 登录账号<span id="meAcc" style="font-size:12.5px;color:var(--kp-sub);font-weight:800">未绑定</span></div>
           <div class="set-row">🔊 提示音<button class="sw on" id="swSound"></button></div>
           <div class="set-row">🔄 切换小盆友<button class="bttn grad-sky" id="btnMeSwitch" style="padding:8px 14px;font-size:12px">去切换</button></div>
           <div class="set-row">👨‍👩‍👧 家长专区<button class="bttn grad-grape" id="parentZone" style="padding:8px 14px;font-size:12px">管理</button></div>
@@ -438,23 +517,6 @@
           <div class="row" style="margin-top:16px">
             <button class="bttn grad-sun" id="btnMngClose">完成</button>
           </div>
-          <div style="text-align:center;margin-top:12px">
-            <button id="btnLogout" style="font-size:12px;font-weight:900;color:var(--kp-coral-d);text-decoration:underline">退出微信登录</button>
-          </div>
-        </div>
-      </div>
-      <div class="ovl stage-ovl" id="wxOverlay">
-        <div class="stage-card">
-          <b class="t">微信授权登录</b>
-          <div class="wx-fake">
-            <div class="wface" id="wxFace">🐼</div>
-            <b id="wxName" style="font-size:16px">微信用户</b>
-            <div class="next-tip" style="color:var(--kp-sub);background:none">KIDX 申请获取你的微信昵称和头像<br>用于保存孩子的学习进度</div>
-          </div>
-          <div class="row">
-            <button class="bttn grad-sun" id="btnWxDeny">拒绝</button>
-            <button class="bttn grad-mint" id="btnWxAllow">允许</button>
-          </div>
         </div>
       </div>
       <div class="burst" id="burst"></div>
@@ -470,119 +532,185 @@
 </div><script>
 (function(){
   'use strict';
-  var LEVELS=[
-    {id:1,name:'零基础小芽芽',icon:'🌱',desc:'从最简单的单词开始'},
-    {id:2,name:'入门小萌新',icon:'🐣',desc:'认识常见单词和短语'},
-    {id:3,name:'基础小达人',icon:'🚀',desc:'能跟读完整句子'},
-    {id:4,name:'进阶小演说家',icon:'🦁',desc:'情景对话我来啦'}
+    var LEVELS=[
+    {id:1,name:'幼儿启蒙',icon:'🎬',desc:'动画片式启蒙，兴趣第一',words:'核心 300 词',age:'3-6 岁',color:'sun',
+     points:['26个字母','颜色/数字/动物','日常问候','儿歌跟唱','动画场景对话'],
+     plan:'每周 3-4 集动画小剧场，每集 5-8 句，边看边学边跟读'},
+    {id:2,name:'小学英语',icon:'🏫',desc:'打好小学基础，开口说英语',words:'核心 800 词',age:'6-12 岁',color:'mint',
+     points:['自然拼读','be动词/have/like/can','自我介绍与家庭','学校生活','简单情景对话'],
+     plan:'每周 4 课，每课 10 分钟，配合课文情景口语'},
+    {id:3,name:'中考英语',icon:'📐',desc:'对标中考英语，听说读写同步',words:'核心 1600 词',age:'初中 12-15 岁',color:'sky',
+     points:['八大时态','被动语态','比较级/最高级','宾语从句','情景交际口语'],
+     plan:'每周 4 课 + 1 次口语实战，覆盖中考人机对话'},
+    {id:4,name:'高考英语',icon:'🎯',desc:'对标高考英语，冲刺听说读写',words:'核心 3500 词',age:'高中 15-18 岁',color:'grape',
+     points:['非谓语动词','三大从句','虚拟语气','完形/阅读技巧','写作高级句型'],
+     plan:'每周 4 课 + 1 篇写作，精讲高考高频考点'},
+    {id:5,name:'大学四六级',icon:'📚',desc:'四六级通关，听力口语双提升',words:'四级4500/六级6000',age:'大学',color:'coral',
+     points:['新闻听力','选词填空/段落匹配','仔细阅读','汉译英','四六级口语考试'],
+     plan:'每周 5 课，真题精听精练，考前冲刺口语'},
+    {id:6,name:'考研英语',icon:'🎓',desc:'考研英语+复试口语全覆盖',words:'核心 5500 词',age:'考研',color:'navy',
+     points:['长难句分析','阅读推理题','翻译(英译汉)','大小作文','复试口语问答'],
+     plan:'每周 5 课，真题阅读精讲 + 复试口语模拟'}
   ];
-  var UNITS=[
-    {id:'L1U1',level:1,title:'打招呼',emoji:'🖐️',sub:'大声说出你的问候',phrases:[
+    var UNITS=[
+    {id:'L1U1',level:1,title:'早安农场',emoji:'🌾',sub:'和小动物说早上好',scene:'🌾🐮🐔☀️',phrases:[
       {en:'Hello!',zh:'你好！',emoji:'👋'},
-      {en:'Hi!',zh:'嗨！',emoji:'😊'},
-      {en:'Bye-bye!',zh:'拜拜！',emoji:'👋'},
-      {en:'Goodbye!',zh:'再见！',emoji:'🚗'}
-    ]},
-    {id:'L1U2',level:1,title:'我的家人',emoji:'👨‍👩‍👧',sub:'把爱说出来',phrases:[
-      {en:'Mum!',zh:'妈妈！',emoji:'👩'},
-      {en:'Dad!',zh:'爸爸！',emoji:'👨'},
-      {en:'Baby!',zh:'宝宝！',emoji:'👶'},
-      {en:'I love you!',zh:'我爱你！',emoji:'❤️'}
-    ]},
-    {id:'L1U3',level:1,title:'小动物',emoji:'🐶',sub:'认识动物小伙伴',phrases:[
-      {en:'Dog!',zh:'小狗！',emoji:'🐶'},
-      {en:'Cat!',zh:'小猫！',emoji:'🐱'},
-      {en:'Bird!',zh:'小鸟！',emoji:'🐦'},
-      {en:'Fish!',zh:'小鱼！',emoji:'🐟'}
-    ]},
-    {id:'L1U4',level:1,title:'好吃的',emoji:'🍎',sub:'甜甜的水果怎么说',phrases:[
-      {en:'Apple!',zh:'苹果！',emoji:'🍎'},
-      {en:'Banana!',zh:'香蕉！',emoji:'🍌'},
-      {en:'Milk!',zh:'牛奶！',emoji:'🥛'},
-      {en:'Yummy!',zh:'真好吃！',emoji:'😋'}
-    ]},
-    {id:'L2U1',level:2,title:'问候寒暄',emoji:'☀️',sub:'从早安到晚安',phrases:[
       {en:'Good morning!',zh:'早上好！',emoji:'🌅'},
-      {en:'Good night!',zh:'晚安！',emoji:'🌙'},
-      {en:'How are you?',zh:'你好吗？',emoji:'😊'},
-      {en:"I'm fine!",zh:'我很好！',emoji:'😄'}
+      {en:'Moo! Moo!',zh:'哞哞！',emoji:'🐮'},
+      {en:'Goodbye!',zh:'再见！',emoji:'🚜'}
     ]},
-    {id:'L2U2',level:2,title:'我喜欢',emoji:'❤️',sub:'说出你的喜欢',phrases:[
-      {en:'I like dogs!',zh:'我喜欢小狗！',emoji:'🐶'},
-      {en:'I like apples!',zh:'我喜欢苹果！',emoji:'🍎'},
-      {en:'I like milk!',zh:'我喜欢牛奶！',emoji:'🥛'},
-      {en:'I like you!',zh:'我喜欢你！',emoji:'😊'}
+    {id:'L1U2',level:1,title:'彩虹乐园',emoji:'🌈',sub:'认识漂亮的颜色',scene:'🌈🎡🎠☁️',phrases:[
+      {en:'It is red!',zh:'它是红色！',emoji:'🍎'},
+      {en:'It is yellow!',zh:'它是黄色！',emoji:'🌟'},
+      {en:'It is blue!',zh:'它是蓝色！',emoji:'💧'},
+      {en:'So many colors!',zh:'好多颜色呀！',emoji:'🌈'}
     ]},
-    {id:'L2U3',level:2,title:'这是什么',emoji:'🔍',sub:'介绍身边的东西',phrases:[
-      {en:"It's a dog!",zh:'这是一只小狗！',emoji:'🐶'},
-      {en:"It's a cat!",zh:'这是一只小猫！',emoji:'🐱'},
-      {en:"It's a book!",zh:'这是一本书！',emoji:'📖'},
-      {en:"It's a ball!",zh:'这是一个球！',emoji:'⚽'}
+    {id:'L1U3',level:1,title:'动物宝宝',emoji:'🐶',sub:'和动物宝宝交朋友',scene:'🐶🐱🐦🐟',phrases:[
+      {en:'Dog! Dog!',zh:'小狗！小狗！',emoji:'🐶'},
+      {en:'Cat! Cat!',zh:'小猫！小猫！',emoji:'🐱'},
+      {en:'Bird! Bird!',zh:'小鸟！小鸟！',emoji:'🐦'},
+      {en:'I like you!',zh:'我喜欢你！',emoji:'❤️'}
     ]},
-    {id:'L2U4',level:2,title:'认识颜色',emoji:'🌈',sub:'世界是彩色的',phrases:[
-      {en:"It's red!",zh:'它是红色！',emoji:'🍎'},
-      {en:"It's blue!",zh:'它是蓝色！',emoji:'🌊'},
-      {en:"It's yellow!",zh:'它是黄色！',emoji:'🌟'},
-      {en:"It's green!",zh:'它是绿色！',emoji:'🌿'}
+    {id:'L1U4',level:1,title:'美味果园',emoji:'🍎',sub:'甜甜的水果怎么说',scene:'🍎🍌🍇🍊',phrases:[
+      {en:'Apple! Yummy!',zh:'苹果！真好吃！',emoji:'🍎'},
+      {en:'Banana! Yummy!',zh:'香蕉！真好吃！',emoji:'🍌'},
+      {en:'Milk! Yummy!',zh:'牛奶！真好喝！',emoji:'🥛'},
+      {en:'Thank you!',zh:'谢谢！',emoji:'🙏'}
     ]},
-    {id:'L3U1',level:3,title:'自我介绍',emoji:'🪪',sub:'大方地介绍自己',phrases:[
+    {id:'L2U1',level:2,title:'认识我自己',emoji:'🪪',sub:'大方介绍自己',phrases:[
       {en:'My name is Tom.',zh:'我叫汤姆。',emoji:'👦'},
-      {en:'I am five years old.',zh:'我五岁了。',emoji:'✋'},
+      {en:'I am eight years old.',zh:'我八岁了。',emoji:'🎂'},
       {en:'I like red.',zh:'我喜欢红色。',emoji:'🔴'},
       {en:'Nice to meet you!',zh:'很高兴认识你！',emoji:'🤝'}
     ]},
-    {id:'L3U2',level:3,title:'我的本领',emoji:'💪',sub:'我会做很多事情',phrases:[
-      {en:'I can run!',zh:'我会跑步！',emoji:'🏃'},
-      {en:'I can jump!',zh:'我会跳高！',emoji:'🦘'},
-      {en:'I can sing!',zh:'我会唱歌！',emoji:'🎤'},
-      {en:'I can dance!',zh:'我会跳舞！',emoji:'💃'}
-    ]},
-    {id:'L3U3',level:3,title:'温暖的家',emoji:'🏠',sub:'介绍我的家人',phrases:[
+    {id:'L2U2',level:2,title:'我的家庭',emoji:'👨‍👩‍👧',sub:'介绍可爱的家人',phrases:[
       {en:'This is my mum.',zh:'这是我的妈妈。',emoji:'👩'},
-      {en:'This is my dad.',zh:'这是我的爸爸。',emoji:'👨'},
-      {en:'This is my family.',zh:'这是我的家。',emoji:'🏠'},
-      {en:'I love my family!',zh:'我爱我的家！',emoji:'❤️'}
+      {en:'I have a sister.',zh:'我有一个妹妹。',emoji:'👧'},
+      {en:'We love each other.',zh:'我们互相爱护。',emoji:'❤️'},
+      {en:'My dad is tall.',zh:'我爸爸很高。',emoji:'👨'}
     ]},
-    {id:'L3U4',level:3,title:'可爱世界',emoji:'🐾',sub:'描述你喜欢的东西',phrases:[
-      {en:"It's big!",zh:'它好大！',emoji:'🐘'},
-      {en:"It's small!",zh:'它好小！',emoji:'🐜'},
-      {en:"It's cute!",zh:'它好可爱！',emoji:'🐰'},
-      {en:"It's funny!",zh:'太有趣啦！',emoji:'🤣'}
+    {id:'L2U3',level:2,title:'我的学校',emoji:'🏫',sub:'说说校园里的生活',phrases:[
+      {en:'I go to school.',zh:'我去上学。',emoji:'🎒'},
+      {en:'I have a pencil.',zh:'我有一支铅笔。',emoji:'✏️'},
+      {en:'We read books.',zh:'我们读书。',emoji:'📖'},
+      {en:'I like my teacher.',zh:'我喜欢我的老师。',emoji:'👩‍🏫'}
     ]},
-    {id:'L4U1',level:4,title:'餐厅点餐',emoji:'🍽️',sub:'有礼貌地表达需求',phrases:[
-      {en:'Can I have some milk, please?',zh:'请给我一些牛奶好吗？',emoji:'🥛'},
-      {en:'I want an apple, please.',zh:'我想要一个苹果。',emoji:'🍎'},
-      {en:'Thank you!',zh:'谢谢你！',emoji:'🙏'},
-      {en:"You're welcome!",zh:'不客气！',emoji:'😊'}
-    ]},
-    {id:'L4U2',level:4,title:'奇妙动物园',emoji:'🦁',sub:'和动物朋友聊聊天',phrases:[
-      {en:"What's this? It's a lion!",zh:'这是什么？是狮子！',emoji:'🦁'},
-      {en:'Look at the elephant!',zh:'看那只大象！',emoji:'🐘'},
-      {en:'It has a long nose.',zh:'它的鼻子好长。',emoji:'🐘'},
-      {en:'The monkey is funny!',zh:'小猴子真有趣！',emoji:'🐵'}
-    ]},
-    {id:'L4U3',level:4,title:'今天天气',emoji:'⛅',sub:'聊聊天气和心情',phrases:[
-      {en:"It's sunny today!",zh:'今天阳光灿烂！',emoji:'☀️'},
+    {id:'L2U4',level:2,title:'天气与季节',emoji:'⛅',sub:'聊聊天气和四季',phrases:[
+      {en:"It's sunny today.",zh:'今天阳光灿烂。',emoji:'☀️'},
       {en:"It's rainy today.",zh:'今天下雨了。',emoji:'🌧️'},
-      {en:'I like the sun!',zh:'我喜欢太阳！',emoji:'😎'},
-      {en:"Let's play outside!",zh:'我们去外面玩吧！',emoji:'🛝'}
+      {en:'I like spring.',zh:'我喜欢春天。',emoji:'🌸'},
+      {en:"Let's fly a kite!",zh:'我们去放风筝吧！',emoji:'🪁'}
     ]},
-    {id:'L4U4',level:4,title:'交个朋友',emoji:'🤝',sub:'和新朋友聊聊天',phrases:[
-      {en:"What's your name?",zh:'你叫什么名字？',emoji:'❓'},
-      {en:'How old are you?',zh:'你几岁啦？',emoji:'🎂'},
-      {en:"Let's be friends!",zh:'我们做朋友吧！',emoji:'🤝'},
-      {en:'See you tomorrow!',zh:'明天见！',emoji:'👋'}
+    {id:'L3U1',level:3,title:'校园生活',emoji:'📚',sub:'中考必考：时态运用',phrases:[
+      {en:'I get up at seven.',zh:'我七点起床。',emoji:'⏰'},
+      {en:'She is doing homework now.',zh:'她现在正在写作业。',emoji:'📝'},
+      {en:'I have studied for three years.',zh:'我已经学了三年了。',emoji:'📖'},
+      {en:'We will have an exam.',zh:'我们将要考试。',emoji:'📋'}
+    ]},
+    {id:'L3U2',level:3,title:'健康运动',emoji:'💪',sub:'中考必考：比较级与建议',phrases:[
+      {en:'I run every morning.',zh:'我每天早上跑步。',emoji:'🏃'},
+      {en:'You should drink more water.',zh:'你应该多喝水。',emoji:'💧'},
+      {en:'He is taller than me.',zh:'他比我高。',emoji:'📏'},
+      {en:'Doing exercise is good for health.',zh:'锻炼对健康有好处。',emoji:'🏋️'}
+    ]},
+    {id:'L3U3',level:3,title:'旅行交通',emoji:'🚆',sub:'中考必考：问路与出行',phrases:[
+      {en:'Where is the station?',zh:'车站在哪里？',emoji:'🚉'},
+      {en:'You can take the subway.',zh:'你可以坐地铁。',emoji:'🚇'},
+      {en:'It takes about 20 minutes.',zh:'大约要花 20 分钟。',emoji:'⏱️'},
+      {en:'Have a nice trip!',zh:'旅途愉快！',emoji:'✈️'}
+    ]},
+    {id:'L3U4',level:3,title:'节日文化',emoji:'🏮',sub:'中考必考：节日与习俗',phrases:[
+      {en:'Spring Festival is coming.',zh:'春节快到了。',emoji:'🧧'},
+      {en:'We eat dumplings.',zh:'我们吃饺子。',emoji:'🥟'},
+      {en:'I like the Mid-Autumn Festival.',zh:'我喜欢中秋节。',emoji:'🌕'},
+      {en:'It is believed that...',zh:'人们相信……',emoji:'💭'}
+    ]},
+    {id:'L4U1',level:4,title:'校园与梦想',emoji:'🌟',sub:'高考必考：非谓语与状语从句',phrases:[
+      {en:'I am determined to achieve my dream.',zh:'我决心实现我的梦想。',emoji:'🚀'},
+      {en:'Hard work leads to success.',zh:'努力带来成功。',emoji:'💪'},
+      {en:'It is important that we keep learning.',zh:'坚持学习很重要。',emoji:'📚'},
+      {en:'The more you practice, the better you speak.',zh:'练得越多，说得越好。',emoji:'🗣️'}
+    ]},
+    {id:'L4U2',level:4,title:'科技与生活',emoji:'🤖',sub:'高考必考：定语从句与虚拟',phrases:[
+      {en:'Smartphones have changed our lives.',zh:'智能手机改变了我们的生活。',emoji:'📱'},
+      {en:'It is said that AI will develop fast.',zh:'据说人工智能会快速发展。',emoji:'🤖'},
+      {en:'We are supposed to use technology wisely.',zh:'我们应该明智地使用科技。',emoji:'💡'},
+      {en:'The Internet connects the whole world.',zh:'互联网连接整个世界。',emoji:'🌐'}
+    ]},
+    {id:'L4U3',level:4,title:'环保与自然',emoji:'🌍',sub:'高考必考：写作高分句型',phrases:[
+      {en:'We should protect the environment.',zh:'我们应该保护环境。',emoji:'🌳'},
+      {en:"It is everyone's duty to save water.",zh:'节约用水是每个人的责任。',emoji:'💧'},
+      {en:'Recycling helps reduce pollution.',zh:'回收利用有助于减少污染。',emoji:'♻️'},
+      {en:"Let's build a greener world.",zh:'让我们共建绿色世界。',emoji:'🌏'}
+    ]},
+    {id:'L4U4',level:4,title:'文化与沟通',emoji:'🎎',sub:'高考必考：强调句与谚语',phrases:[
+      {en:'Chinese culture is profound.',zh:'中国文化博大精深。',emoji:'🏯'},
+      {en:'I am proud of our traditions.',zh:'我为我们的传统感到自豪。',emoji:'🎐'},
+      {en:'Understanding each other matters.',zh:'相互理解很重要。',emoji:'🤝'},
+      {en:'Actions speak louder than words.',zh:'行动胜于言语。',emoji:'💬'}
+    ]},
+    {id:'L5U1',level:5,title:'校园学习',emoji:'🎓',sub:'四六级：学习类话题',phrases:[
+      {en:'I am preparing for CET-4.',zh:'我正在备考英语四级。',emoji:'📘'},
+      {en:'Attending lectures is beneficial.',zh:'听讲座很有益处。',emoji:'🎤'},
+      {en:'It is reported that...',zh:'据报道……',emoji:'📰'},
+      {en:'I have trouble concentrating.',zh:'我很难集中注意力。',emoji:'🧠'}
+    ]},
+    {id:'L5U2',level:5,title:'职场与社会',emoji:'💼',sub:'四六级：社会现象话题',phrases:[
+      {en:'The job market is competitive.',zh:'就业市场竞争激烈。',emoji:'📊'},
+      {en:'Communication skills matter a lot.',zh:'沟通能力很重要。',emoji:'🗣️'},
+      {en:'It is essential to balance work and life.',zh:'平衡工作与生活至关重要。',emoji:'⚖️'},
+      {en:'Many graduates are seeking internships.',zh:'许多毕业生在寻找实习机会。',emoji:'🧑‍💻'}
+    ]},
+    {id:'L5U3',level:5,title:'科技与创新',emoji:'🔬',sub:'四六级：科技类话题',phrases:[
+      {en:'Artificial intelligence is booming.',zh:'人工智能正在蓬勃发展。',emoji:'🤖'},
+      {en:'Innovation drives economic growth.',zh:'创新推动经济增长。',emoji:'📈'},
+      {en:'We should embrace new technology.',zh:'我们应该拥抱新技术。',emoji:'💻'},
+      {en:'E-commerce is reshaping shopping.',zh:'电子商务正在重塑购物方式。',emoji:'🛒'}
+    ]},
+    {id:'L5U4',level:5,title:'文化与传统',emoji:'🏮',sub:'四六级：翻译热点',phrases:[
+      {en:'Chinese tea culture has a long history.',zh:'中国茶文化历史悠久。',emoji:'🍵'},
+      {en:'Preserving heritage is our duty.',zh:'保护文化遗产是我们的责任。',emoji:'🏛️'},
+      {en:'Cultural exchange builds bridges.',zh:'文化交流架起桥梁。',emoji:'🌉'},
+      {en:'Diversity makes the world colorful.',zh:'多元让世界多彩。',emoji:'🎨'}
+    ]},
+    {id:'L6U1',level:6,title:'学术与科研',emoji:'🔭',sub:'考研：学术阅读高频表达',phrases:[
+      {en:'The study aims to explore the mechanism.',zh:'该研究旨在探索其机制。',emoji:'🧪'},
+      {en:'The data support this hypothesis.',zh:'数据支持这一假设。',emoji:'📊'},
+      {en:'Further research is needed.',zh:'还需要进一步研究。',emoji:'🔬'},
+      {en:'We must cite reliable sources.',zh:'我们必须引用可靠的来源。',emoji:'📚'}
+    ]},
+    {id:'L6U2',level:6,title:'社会热点',emoji:'🏙️',sub:'考研：社会现象分析',phrases:[
+      {en:'Urbanization is accelerating.',zh:'城市化正在加速。',emoji:'🏙️'},
+      {en:'The aging population poses challenges.',zh:'人口老龄化带来挑战。',emoji:'👵'},
+      {en:'Education inequality remains a concern.',zh:'教育不平等仍令人担忧。',emoji:'🎓'},
+      {en:'The gap between rich and poor is widening.',zh:'贫富差距正在扩大。',emoji:'📉'}
+    ]},
+    {id:'L6U3',level:6,title:'经济与科技',emoji:'💹',sub:'考研：经济类阅读表达',phrases:[
+      {en:'The economy is growing steadily.',zh:'经济在稳步增长。',emoji:'📈'},
+      {en:'Small businesses face fierce competition.',zh:'小企业面临激烈竞争。',emoji:'🏪'},
+      {en:'Technology revolutionizes industries.',zh:'科技正在变革各行各业。',emoji:'⚙️'},
+      {en:'Sustainable development is a priority.',zh:'可持续发展是重中之重。',emoji:'🌱'}
+    ]},
+    {id:'L6U4',level:6,title:'个人成长',emoji:'🌱',sub:'考研：写作与复试口语',phrases:[
+      {en:'Self-discipline is the key to success.',zh:'自律是成功的关键。',emoji:'🔑'},
+      {en:'Failure is the mother of success.',zh:'失败是成功之母。',emoji:'🌟'},
+      {en:'We grow through challenges.',zh:'我们在挑战中成长。',emoji:'⛰️'},
+      {en:'Lifelong learning matters in modern society.',zh:'终身学习在当今社会很重要。',emoji:'📖'}
     ]}
   ];
-  var TEST=[
+    var TEST=[
     {en:'Hello!',emoji:'👋',opts:[{t:'你好！',e:'👋',ok:true},{t:'再见！',e:'👋'},{t:'谢谢！',e:'🙏'},{t:'晚安！',e:'🌙'}]},
     {en:'Goodbye!',emoji:'🚗',opts:[{t:'早上好！',e:'🌅'},{t:'你好！',e:'👋'},{t:'再见！',e:'🚗',ok:true},{t:'我爱你！',e:'❤️'}]},
     {en:"It's a cat!",emoji:'🐱',opts:[{t:'这是一只小狗！',e:'🐶'},{t:'这是一只小猫！',e:'🐱',ok:true},{t:'这是一只小鸟！',e:'🐦'},{t:'这是一条小鱼！',e:'🐟'}]},
-    {en:'How are you?',emoji:'😊',opts:[{t:'你几岁啦？',e:'🎂'},{t:'你叫什么名字？',e:'📛'},{t:'你好吗？',e:'😊',ok:true},{t:'几点啦？',e:'🕐'}]},
     {en:'I like milk!',emoji:'🥛',opts:[{t:'我喜欢牛奶！',e:'🥛',ok:true},{t:'我喜欢苹果！',e:'🍎'},{t:'我喜欢香蕉！',e:'🍌'},{t:'我喜欢面包！',e:'🍞'}]},
     {en:'My name is Lily.',emoji:'🌸',opts:[{t:'我五岁了。',e:'✋'},{t:'我的名字叫莉莉。',e:'🌸',ok:true},{t:'我喜欢唱歌。',e:'🎤'},{t:'我很好，谢谢。',e:'😄'}]},
-    {en:'I can jump!',emoji:'🦘',opts:[{t:'我会跑步！',e:'🏃'},{t:'我会唱歌！',e:'🎤'},{t:'我会跳舞！',e:'💃'},{t:'我会跳高！',e:'🦘',ok:true}]},
-    {en:'Can I have some milk, please?',emoji:'🥛',opts:[{t:'牛奶在哪里？',e:'🤔'},{t:'请给我一些牛奶，好吗？',e:'🥛',ok:true},{t:'你想喝牛奶吗？',e:'❓'},{t:'牛奶太好喝了！',e:'😋'}]}
+    {en:"It's sunny today.",emoji:'☀️',opts:[{t:'今天下雨了。',e:'🌧️'},{t:'今天很冷。',e:'🥶'},{t:'今天阳光灿烂。',e:'☀️',ok:true},{t:'今天刮风了。',e:'🌬️'}]},
+    {en:'I get up at seven.',emoji:'⏰',opts:[{t:'我七点起床。',e:'⏰',ok:true},{t:'我七点睡觉。',e:'😴'},{t:'我七点吃饭。',e:'🍚'},{t:'我七点上学。',e:'🎒'}]},
+    {en:'She is doing homework now.',emoji:'📝',opts:[{t:'她正在看电视。',e:'📺'},{t:'她正在写作业。',e:'📝',ok:true},{t:'她正在做饭。',e:'🍳'},{t:'她正在睡觉。',e:'😴'}]},
+    {en:'I have studied for three years.',emoji:'📖',opts:[{t:'我将学习三年。',e:'🔮'},{t:'我已经学了三年了。',e:'📖',ok:true},{t:'我每天学习三小时。',e:'⏳'},{t:'我三年前开始学习。',e:'📅'}]},
+    {en:'Hard work leads to success.',emoji:'💪',opts:[{t:'努力导致失败。',e:'😞'},{t:'成功来之不易。',e:'🏆'},{t:'努力带来成功。',e:'💪',ok:true},{t:'成功需要运气。',e:'🍀'}]},
+    {en:'Artificial intelligence is booming.',emoji:'🤖',opts:[{t:'人工智能正在衰落。',e:'📉'},{t:'人工智能正在蓬勃发展。',e:'🤖',ok:true},{t:'人工智能已经过时。',e:'🗑️'},{t:'人工智能非常危险。',e:'⚠️'}]},
+    {en:'The study aims to explore the mechanism.',emoji:'🔬',opts:[{t:'该研究旨在赚钱。',e:'💰'},{t:'该研究旨在探索其机制。',e:'🔬',ok:true},{t:'该研究已经完成。',e:'✅'},{t:'该研究被取消了。',e:'🚫'}]}
   ];
   var FACES=['🐻','🐰','🦊','🐱','🐶','🐼','⭐','🌈'];
   var AGES=['3-5 岁','6-8 岁','9-12 岁'];
@@ -614,16 +742,18 @@
   function speak(en){try{if(!('speechSynthesis' in window))return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(en);u.lang='en-US';u.rate=.82;speechSynthesis.speak(u)}catch(e){}}
   function confetti(){var wrap=$('burst');wrap.innerHTML='';var colors=['#ffcf4d','#ff7a6b','#5ee6b0','#6ec6ff','#a78bfa'];for(var i=0;i<34;i++){var c=document.createElement('i');c.style.left=(4+Math.random()*92)+'%';c.style.background=colors[i%colors.length];c.style.animationDelay=(Math.random()*.5)+'s';c.style.setProperty('--dx',(Math.random()*180-90)+'px');c.style.setProperty('--rot',(Math.random()*720-360)+'deg');wrap.appendChild(c)}}
   function setScreen(name){
-    ['login','user','test','home','lesson','pet','me'].forEach(function(n){$('scr-'+n).classList.toggle('active',n===name)});
-    if(name!=='lesson'){
+    ['user','level','test','home','lesson','cartoon','plan','pet','me'].forEach(function(n){$('scr-'+n).classList.toggle('active',n===name)});
+    if(name!=='lesson'&&name!=='cartoon'){
       clearInterval(state.timers.rec);clearTimeout(state.timers.rec2);clearTimeout(state.timers.talk);
       $('recOverlay').classList.remove('on');$('resultOverlay').classList.remove('on');$('stageOverlay').classList.remove('on');$('manageOverlay').classList.remove('on');
       $('cardTalk').classList.remove('talking');
     }
-    $('phone').classList.toggle('in-lesson',name==='lesson');
-    $('phone').classList.toggle('no-tab',name==='user'||name==='test'||name==='login');
+    $('phone').classList.toggle('in-lesson',name==='lesson'||name==='cartoon');
+    $('phone').classList.toggle('no-tab',name==='user'||name==='test'||name==='level');
     document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('on',b.dataset.tab===name)});
     if(name==='home')renderHome();
+    if(name==='cartoon')renderCartoon();
+    if(name==='plan')renderPlan();
     if(name==='pet')renderPet();
     if(name==='me')renderMe();
     if(name==='user')renderUserPick();
@@ -677,9 +807,9 @@
   }
   function renderLesson(){
     var U=unitById(state.curUnit),L=levelInfo(U.level);
-    $('lesTitle').textContent='第'+(U.level)+'级 · '+U.title;
+    $('lesTitle').textContent=U.title;
     $('lesSub').textContent=L.name+' · '+U.sub;
-    $('phMascot').textContent=U.level===1?'🌱':U.level===2?'🐣':U.level===3?'🚀':'🦁';
+    $('phMascot').textContent=L.icon;
     var p=curPhrase();
     $('phEn').textContent=p.en;
     $('phZh').textContent=p.zh;
@@ -715,13 +845,7 @@
     },900);
   }
   function cancelRecord(){clearInterval(state.timers.rec);clearTimeout(state.timers.rec2);$('recOverlay').classList.remove('on')}
-  function onUnit(id){
-    var d=me();
-    if(d.unlocked.indexOf(id)<0){showToast('先完成上一个单元才能解锁哦！');return}
-    state.curUnit=id;state.idx=0;
-    renderLesson();
-    setScreen('lesson');
-  }
+
   function finishUnit(){
     var d=me();
     var u=d.units[state.curUnit]||{times:0};
@@ -765,7 +889,7 @@
   }
   function checkUpgrade(){
     var d=me();
-    if(d.level>=4)return false;
+    if(d.level>=6)return false;
     var list=unitsOf(d.level),pc=0;
     list.forEach(function(u){var x=d.units[u.id];if(x&&x.perfect)pc++});
     if(pc>=2){
@@ -791,13 +915,125 @@
     if(nxt)onUnit(nxt);
     else setScreen('home');
   }
+  function renderStageCard(){
+    var d=me(),L=levelInfo(d.level);
+    var tags=L.points.slice(0,4).map(function(p){return '<span class="sc-tag">'+p+'</span>'}).join('');
+    $('stageCard').innerHTML='<div class="sc-head"><span class="sc-ic">'+L.icon+'</span><div><b>'+L.name+' · '+L.words+'</b><div class="sc-sub">'+L.age+' · '+L.desc+'</div></div><button class="sc-btn" id="btnStagePlan">学习计划 📋</button></div>'+
+      '<div class="sc-row">'+tags+'</div>'+
+      '<div class="sc-plan" id="scPlanGo">📅 '+L.plan+'</div>';
+    $('btnStagePlan').addEventListener('click',openPlan);
+    $('scPlanGo').addEventListener('click',openPlan);
+  }
+  function openPlan(){
+    renderPlan();
+    setScreen('plan');
+  }
+  function renderPlan(){
+    var d=me(),L=levelInfo(d.level);
+    $('planHero').innerHTML='<div class="ph-ic">'+L.icon+'</div><b>'+L.name+'</b>'+
+      '<div class="ph-row"><span class="ph-chip">📖 '+L.words+'</span><span class="ph-chip">👧 '+L.age+'</span><span class="ph-chip">🏅 '+d.stars+' 星</span></div>';
+    var pts=L.points.map(function(p,i){return '<div class="point-item"><i>'+(i+1)+'</i>'+p+'</div>'}).join('');
+    $('planPoints').innerHTML=pts;
+    $('planText').textContent=L.plan+'。完成本阶段全部课程后，即可解锁下一个阶段！';
+    var ul=$('planUnits');ul.innerHTML='';
+    var lt=['lt-mint','lt-sky','lt-sun','lt-grape','lt-coral','lt-navy'][d.level-1];
+    var head=document.createElement('div');
+    head.innerHTML='<span class="level-tag '+lt+'">'+L.name+' '+L.icon+'</span>';
+    ul.appendChild(head);
+    unitsOf(d.level).forEach(function(u){
+      var st=d.units[u.id];
+      var unlocked=d.unlocked.indexOf(u.id)>=0;
+      var el=document.createElement('button');
+      el.className='stage-item'+(unlocked?'':' locked');
+      var sub=st&&st.done?'平均 '+st.lastAvg+' 分':unlocked?(u.level===1?'看动画学 '+u.phrases.length+' 句':'学 '+u.phrases.length+' 句'):'完成上一个单元解锁';
+      el.innerHTML='<span class="scircle st'+((u.level-1)%6)+'">'+(unlocked?(st&&st.done?'✅':u.emoji):'🔒')+'</span>'+
+        '<span class="sinfo"><b>'+u.title+'</b><i>'+sub+'</i></span>'+
+        '<span class="sgo">'+(st&&st.done?'复习':unlocked?'开始 ▶':'🔒')+'</span>';
+      el.addEventListener('click',function(){onUnit(u.id)});
+      ul.appendChild(el);
+    });
+    var sw=$('planSwitch');sw.innerHTML='';
+    LEVELS.forEach(function(L2){
+      var el=document.createElement('button');
+      el.className='sw-item'+(L2.id===d.level?' on':'');
+      el.innerHTML='<span class="sw-ic">'+L2.icon+'</span><b>'+L2.name+'</b><i>'+L2.words+'</i>';
+      el.addEventListener('click',function(){switchStage(L2.id)});
+      sw.appendChild(el);
+    });
+  }
+  function switchStage(n){
+    var d=me();
+    if(d.level===n){showToast('已经在'+levelInfo(n).name+'啦');return}
+    d.level=n;
+    d.unlocked=[unitsOf(n)[0].id];
+    d.units={};
+    save();
+    chime();
+    renderPlan();
+    showToast('已切换到'+levelInfo(n).name+' '+levelInfo(n).icon);
+  }
+  function openCartoon(id){
+    state.curUnit=id;state.ctIdx=0;
+    renderCartoon();
+    setScreen('cartoon');
+    speakCartoon();
+  }
+  function speakCartoon(){
+    var u=unitById(state.curUnit);
+    if(!u)return;
+    var p=u.phrases[state.ctIdx];
+    if(p)speak(p.en);
+  }
+  function renderCartoon(){
+    var u=unitById(state.curUnit),L=levelInfo(u.level);
+    $('ctTitle').textContent=u.title;
+    $('ctSub').textContent=L.name+' · 动画小剧场';
+    var p=u.phrases[state.ctIdx];
+    $('ctChar').textContent=p.emoji;
+    $('ctEn').textContent=p.en;
+    $('ctZh').textContent=p.zh;
+    $('ctFlag').textContent='🎬 第 '+(state.ctIdx+1)+' / '+u.phrases.length+' 句';
+    $('ctSub2').textContent='第 '+(state.ctIdx+1)+' / '+u.phrases.length+' 句';
+    var dots=$('ctDots');dots.innerHTML='';
+    u.phrases.forEach(function(ph,i){var d=document.createElement('i');d.className='dot'+(i===state.ctIdx?' cur':i<state.ctIdx?' on':'');dots.appendChild(d)});
+    var last=state.ctIdx===u.phrases.length-1;
+    $('btnCtNext').textContent=last?'开始闯关 🚀':'下一句 ➡️';
+    $('ctTip').textContent=last?'动画看完啦！点「开始闯关」跟着说一遍吧':'跟着小动物学这句，大胆读出来！';
+  }
+  function nextCartoon(){
+    var u=unitById(state.curUnit);
+    if(!u)return;
+    if(state.ctIdx<u.phrases.length-1){
+      state.ctIdx++;
+      renderCartoon();
+      speakCartoon();
+    }else{
+      openUnit(state.curUnit);
+    }
+  }
+  function openUnit(id){
+    state.curUnit=id;state.idx=0;
+    renderLesson();
+    setScreen('lesson');
+    showToast('闯关开始！大声跟读吧 💪');
+  }
+  function onUnit(id){
+    var d=me();
+    if(d.unlocked.indexOf(id)<0){showToast('先完成上一个单元才能解锁哦！');return}
+    var U=unitById(id);
+    if(U.level===1){
+      openCartoon(id);
+    }else{
+      openUnit(id);
+    }
+  }
   function renderMap(){
     var d=me(),L=levelInfo(d.level);
     $('mapLevel').textContent=L.icon+' '+L.name;
     var list=$('stageList');list.innerHTML='';
-    var lt=['lt-mint','lt-sky','lt-sun','lt-grape'][d.level-1];
+    var lt=['lt-mint','lt-sky','lt-sun','lt-grape','lt-coral','lt-navy'][d.level-1];
     var head=document.createElement('div');
-    head.innerHTML='<span class="level-tag '+lt+'">'+L.name+' '+L.icon+'</span>';
+    head.innerHTML='<span class="level-tag '+lt+'">'+L.name+' '+L.icon+' · '+L.words+'</span>';
     list.appendChild(head);
     unitsOf(d.level).forEach(function(u){
       var st=d.units[u.id];
@@ -805,19 +1041,19 @@
       var el=document.createElement('button');
       el.className='stage-item'+(unlocked?'':' locked');
       el.setAttribute('aria-label',u.title);
-      var sub=st&&st.done?'平均 '+st.lastAvg+' 分，复习一下吧！':unlocked?'跟着小老师学这 4 句':'完成上一个单元解锁';
-      el.innerHTML='<span class="scircle st'+((u.level-1)%4)+'">'+(unlocked?(st&&st.done?'✅':u.emoji):'🔒')+'</span>'+
+      var sub=st&&st.done?'平均 '+st.lastAvg+' 分，复习一下吧！':unlocked?(u.level===1?'看动画学这 '+u.phrases.length+' 句':'跟着学这 '+u.phrases.length+' 句'):'完成上一个单元解锁';
+      el.innerHTML='<span class="scircle st'+((u.level-1)%6)+'">'+(unlocked?(st&&st.done?'✅':u.emoji):'🔒')+'</span>'+
         '<span class="sinfo"><b>'+u.title+'</b><i>'+sub+'</i></span>'+
         '<span class="sgo">'+(st&&st.done?'复习':unlocked?'开始 ▶':'🔒')+'</span>';
       el.addEventListener('click',function(){onUnit(u.id)});
       list.appendChild(el);
     });
     var nx=$('nextLvPanel');
-    if(d.level<4){
+    if(d.level<6){
       var nl=levelInfo(d.level+1);
-      var pcs=unitsOf(d.level).filter(function(u){var x=d.units[u.id];return x&&x.perfect}).length;
+      var doneN=unitsOf(d.level).filter(function(u){var x=d.units[u.id];return x&&x.done}).length;
       nx.style.display='flex';
-      nx.innerHTML='🔒 下一级 · '+nl.name+' '+nl.icon+'<span style="margin-left:auto;font-size:11px">完美 '+pcs+'/2</span>';
+      nx.innerHTML='🔒 下一阶段 · '+nl.name+' '+nl.icon+'<span style="margin-left:auto;font-size:11px">已完成 '+doneN+'/'+unitsOf(d.level).length+'</span>';
     }else{
       nx.style.display='none';
     }
@@ -880,6 +1116,7 @@
     var u=user(),d=me();
     $('homeUser').innerHTML='<div class="avatar">'+u.emoji+'</div><div><b>嗨，'+u.name+'！</b><span class="lvl-chip">'+levelInfo(d.level).icon+' '+levelInfo(d.level).name+'</span></div>';
     setStars(d.stars);
+    renderStageCard();
     renderTasks();
     renderMap();
   }
@@ -889,7 +1126,7 @@
       var d=DB.data[u.id];
       var el=document.createElement('button');
       el.className='up-card';
-      el.innerHTML='<span class="em">'+u.emoji+'</span><b>'+u.name+'</b><i>'+(d.tested?levelInfo(d.level).name+' '+levelInfo(d.level).icon:'还没测试水平')+'</i>';
+      el.innerHTML='<span class="em">'+u.emoji+'</span><b>'+u.name+'</b><i>'+(d.tested?levelInfo(d.level).name+' '+levelInfo(d.level).icon:'还没选择水平')+'</i>';
       el.addEventListener('click',function(){selectUser(u.id)});
       box.appendChild(el);
     });
@@ -950,13 +1187,13 @@
     };
     DB.current=id;
     save();
-    startTest();
+    setScreen('level');renderLevel();
   }
   function selectUser(id){
     DB.current=id;
     save();
     var d=me();
-    if(!d.tested){startTest();return}
+    if(!d.tested){setScreen('level');renderLevel();return}
     checkDay();
     setScreen('home');
   }
@@ -1031,7 +1268,7 @@
   function finishTest(){
     var d=me();
     var ok=state.testOk;
-    var lv=ok<=2?1:ok<=4?2:ok<=6?3:4;
+    var lv=ok<=2?1:ok<=4?2:ok<=6?3:ok<=8?4:ok<=10?5:6;
     d.level=lv;
     d.stars=10+ok*2;
     d.tested=true;
@@ -1111,8 +1348,6 @@
     $('meDays').textContent=d.days;
     $('meTalks').textContent=d.talks;
     $('meStars').textContent=d.stars;
-    var acc=DB.account||{};
-    $('meAcc').textContent=acc.phone?('已绑定 '+acc.phone.slice(0,3)+'****'+acc.phone.slice(7)):(acc.wx?('微信已登录 '+(acc.wx.name||'')):'未绑定');
     var badges=[
       ['🎉','第一次开口',d.talks>=1],
       ['🔥','连续 3 天',d.streak>=3],
@@ -1181,100 +1416,39 @@
     });
     $('manageOverlay').classList.add('on');
   }
-  function renderLogin(){
-    var b=$('btnSms');b.disabled=false;b.textContent='获取验证码';
-    $('phoneNum').value='';$('smsCode').value='';state.sms=null;
-    if(DB.account&&DB.account.wx){
-      $('loginTitle').textContent='已通过微信登录 ✓';
-      $('btnWxLogin').style.display='none';
-      $('btnGuest').style.display='none';
-      $('phoneStep').style.display='block';
-    }else{
-      $('loginTitle').textContent='欢迎来到 KIDX 英语口语';
-      $('btnWxLogin').style.display='';
-      $('btnGuest').style.display='';
-      $('phoneStep').style.display='none';
-    }
+  function renderLevel(){
+    var box=$('levelList');box.innerHTML='';
+    LEVELS.forEach(function(L){
+      var el=document.createElement('button');
+      el.className='sw-item';
+      el.innerHTML='<span class="sw-ic">'+L.icon+'</span><b>'+L.name+'</b><i>'+L.words+' · '+L.age+'</i>';
+      el.addEventListener('click',function(){chooseLevel(L.id)});
+      box.appendChild(el);
+    });
   }
-  function startWxAuth(){
-    var faces=['🐼','🦊','🐰','🐯','🐻','🐨','🐧','🦄'];
-    var names=['甜甜妈妈','豆豆爸爸','乐乐妈妈','果果妈妈','小可爱'];
-    state.wx={face:faces[Math.floor(Math.random()*faces.length)],name:names[Math.floor(Math.random()*names.length)]};
-    $('wxFace').textContent=state.wx.face;
-    $('wxName').textContent=state.wx.name;
-    $('wxOverlay').classList.add('on');
-  }
-  function wxDeny(){
-    $('wxOverlay').classList.remove('on');
-    showToast('已取消授权');
-  }
-  function wxAllow(){
-    $('wxOverlay').classList.remove('on');
-    DB.account={wx:state.wx,phone:'',loginAt:Date.now()};
-    save();
-    chime();
-    $('loginTitle').textContent='已通过微信登录 ✓';
-    $('btnWxLogin').style.display='none';
-    $('btnGuest').style.display='none';
-    $('phoneStep').style.display='block';
-    showToast('微信登录成功，请绑定手机号');
-  }
-  function sendSms(){
-    var n=$('phoneNum').value.trim();
-    if(!/^1\d{10}$/.test(n)){showToast('请输入 11 位手机号');return}
-    state.sms='1234';
-    var b=$('btnSms'),left=60;
-    b.disabled=true;
-    var t=setInterval(function(){
-      left--;b.textContent=left+'s';
-      if(left<=0){clearInterval(t);b.disabled=false;b.textContent='获取验证码';showToast('验证码已发送，请查收短信')}
-    },1000);
-    showToast('演示验证码：1234（正式版走短信）');
-  }
-  function bindPhone(){
-    var n=$('phoneNum').value.trim();
-    var c=$('smsCode').value.trim();
-    if(!/^1\d{10}$/.test(n)){showToast('手机号格式不对哦');return}
-    if(!state.sms){showToast('请先获取验证码');return}
-    if(c!==state.sms){showToast('验证码不对，再试试');return}
-    DB.account=DB.account||{};
-    DB.account.phone=n;
-    save();
-    confetti();
-    setTimeout(function(){
-      showToast('绑定成功！欢迎 '+((DB.account.wx&&DB.account.wx.name)||'你')+' 👋');
-      enterApp();
-    },600);
+  function chooseLevel(n){
+    var d=me();if(!d)return;
+    d.level=n;d.tested=true;d.unlocked=[unitsOf(n)[0].id];d.units={};
+    save();chime();
+    checkDay();
+    setScreen('home');
+    showToast('已选择 '+levelInfo(n).name+' '+levelInfo(n).icon+'，开始学习吧！');
   }
   function enterApp(){
     if(!DB.users.length||!DB.current){setScreen('user')}
     else{
       var d=me();
-      if(d&&!d.tested){setScreen('test');renderTest()}
+      if(d&&!d.tested){setScreen('level');renderLevel()}
       else if(d){checkDay();setScreen('home')}
       else{DB.current=null;setScreen('user')}
     }
   }
-  function guestLogin(){
-    showToast('游客模式：进度只保存在这台设备上哦');
-    enterApp();
-  }
-  function logout(){
-    DB.account=null;
-    DB.current=null;
-    save();
-    $('manageOverlay').classList.remove('on');
-    showToast('已退出登录');
-    setScreen('login');
-    renderLogin();
-  }
+  $('btnCartoonBack').addEventListener('click',function(){setScreen('home')});
+  $('btnCtPlay').addEventListener('click',speakCartoon);
+  $('btnCtNext').addEventListener('click',nextCartoon);
+  $('btnPlanBack').addEventListener('click',function(){setScreen('home')});
   load();
-  if(!DB.account){
-    setScreen('login');
-    renderLogin();
-  }else{
-    enterApp();
-  }
+  enterApp();
   document.querySelectorAll('.tab').forEach(function(b){
     b.addEventListener('click',function(){
       var d=me();
@@ -1286,6 +1460,7 @@
   $('btnMeSwitch').addEventListener('click',function(){setScreen('user')});
   $('btnBack').addEventListener('click',function(){setScreen('home')});
   $('btnTestCancel').addEventListener('click',function(){setScreen('user')});
+  $('btnLevelBack').addEventListener('click',function(){setScreen('user')});
   $('btnListen').addEventListener('click',playPhrase);
   $('btnMic').addEventListener('click',startRecord);
   $('btnCancelRec').addEventListener('click',cancelRecord);
@@ -1298,16 +1473,6 @@
   $('btnFeed').addEventListener('click',feedPet);
   $('swSound').addEventListener('click',toggleSound);
   $('btnCreate').addEventListener('click',createUser);
-  $('btnWxLogin').addEventListener('click',startWxAuth);
-  $('btnGuest').addEventListener('click',guestLogin);
-  $('btnWxAllow').addEventListener('click',wxAllow);
-  $('btnWxDeny').addEventListener('click',wxDeny);
-  $('btnSms').addEventListener('click',sendSms);
-  $('btnBind').addEventListener('click',bindPhone);
-  $('btnSkipBind').addEventListener('click',function(){showToast('随时可以在「我的」里绑定手机号 📱');enterApp()});
-  $('btnLogout').addEventListener('click',logout);
-  $('phoneNum').addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').slice(0,11)});
-  $('smsCode').addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').slice(0,6)});
   $('parentZone').addEventListener('click',openManage);
   $('btnMngClose').addEventListener('click',function(){$('manageOverlay').classList.remove('on')});
   $('newName').addEventListener('keydown',function(e){if(e.key==='Enter')createUser()});
